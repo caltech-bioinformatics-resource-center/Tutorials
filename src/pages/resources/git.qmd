@@ -1,7 +1,7 @@
 ---
 title: "Git and GitHub"
 ---
-[**GitHub**](www.github.com) is a web-based platform for hosting and sharing code. It is built on top of [**Git**](https://git-scm.com/), a tool that tracks changes to files over time.
+[**GitHub**](https://www.github.com) is a web-based platform for hosting and sharing code. It is built on top of [**Git**](https://git-scm.com/), a tool that tracks changes to files over time.
 
 In practical terms, Git allows you to:
 
@@ -11,7 +11,7 @@ In practical terms, Git allows you to:
 
 GitHub provides an online location where those tracked files can be stored, backed up, and shared with others.
 
-Below we will provide a quick tutorial to Git and GitHub, highlighting the basic tools you should be familiar with. If you need further clarification or wish to learn about more advanced features (e.g. branching, merging), GitHub has excellent tutorials on their [documentation site](https://docs.github.com/en/get-started/start-your-journey/hello-world).
+Below we will provide a quick tutorial on Git and GitHub, highlighting the basic tools you should be familiar with. If you need further clarification or wish to learn about more advanced features (e.g. branching, merging), GitHub has excellent tutorials on their [documentation site](https://docs.github.com/en/get-started/start-your-journey/hello-world).
 
 ## Why use GitHub for Omics Analyses?
 Omics workflows are often complex, and there is rarely a single “correct” way to analyze a dataset. Even when working with the same raw data, researchers may make different — yet reasonable — choices at each processing step.
@@ -131,7 +131,7 @@ We usually keep all of our files for an analysis in a single project directory, 
 
 The **.gitignore file tells Git which files it should not track**. If you do not already have a text file called `.gitignore` in your repository, you should create one.
 
-An example .gitignore file for a omics analysis project might look like this:
+An example .gitignore file for an omics analysis project might look like this:
 ```bash
 # Raw sequencing data
 *.fastq

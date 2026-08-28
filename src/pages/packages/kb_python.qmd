@@ -24,8 +24,8 @@ A typical kb-python workflow includes:
 
 * Generating a count matrix summarizing gene expression per cell
 
-:::{.callout-note title="Install seqspec"}
-In order to install seqspec, follow our installation instructions [here](/pages/installation/python_packages.qmd#kb-python).
+:::{.callout-note title="Install kb-python"}
+In order to install kb-python, follow our installation instructions [here](/pages/installation/python_packages.qmd).
 :::
 
 ## Workflows
@@ -84,7 +84,7 @@ kb ref --workflow=nac -i index.idx -g t2g.txt -c1 cdna.txt -c2 nascent.txt \
 ```
 
 ## Step 2: Align to Reference Genome
-The next step is to generate a count matrix by pseudoaligning the reads to your reference index using the `kb count` command. For example, suppose you have two paired-end FASTQ files (read1.fastq and read2.fastq) from a 10x Chromium NextGen v3 library.
+The next step is to generate a count matrix by pseudoaligning the reads to your reference index using the `kb count` command. For example, suppose you have two paired-end FASTQ files (read1.fastq and read2.fastq) from a 10x Chromium Next GEM v3 library.
 
 :::{.callout-important}
 Note that this section is only applicable to single cell data. Applying `kb count` to bulk data looks slightly different. If you would like to learn how to use `kb count` to pseudoalign bulk RNA-seq reads, refer to our [Bulk RNA-seq tutorial](/pages/technologies/bulk.qmd).
@@ -130,11 +130,11 @@ GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT
 Change `-x 10XV3` according to the specific technology you used to generate your library.
 
 * 10X Chromium GEM-X V4: `-x 10XV4`
-* Parse Evercode WT v2: `-x SPLITSEQ`
+* Parse Evercode WT v2: `-x SPLIT-SEQ`
 
 To see a complete list of technologies and their corresponding technology strings, type `kb --list` into your terminal.
 
-### Batch Pseudoaligment
+### Batch Pseudoalignment
 In most scRNA-seq experiments, you will have multiple samples, each with its own pair of FASTQ files. Instead of running `kb count` separately on every sample, kb-python allows you to process many samples in a single command using the `--batch-barcodes` flag.
 
 To perform a batch pseudoalignment, run:
@@ -157,18 +157,18 @@ A list of these sample-specific barcode prefixes is saved in `counts_unfiltered/
 
 Currently, **kb-python** does not include a built-in specification for the **Parse Evercode WT v3** chemistry. To pseudoalign Parse v3 data, you must manually specify the assay configuration by providing:
 
-* <a href="\files\v3_onlist.txt" download>v3_onlist.txt</a> — a list of valid cell barcodes
+* <a href="/files/v3_onlist.txt" download>v3_onlist.txt</a> — a list of valid cell barcodes
 
 * a technology string defining barcode positions within the read: `-x "1,10,18,1,30,38,1,50,58:1,0,10:0,0,0"`
 
-* the orientation of the first read (R1) with relative to your library specification: `--strand=forward`
+* the orientation of the first read (R1) relative to your library specification: `--strand=forward`
 
-* the read parity (`paired` if both paired-end reads contain the biological sequence and `single` otherwise): `--paired=single`
+* the read parity (`paired` if both paired-end reads contain the biological sequence and `single` otherwise): `--parity=single`
 
 Then, run:
 ```bash
 kb count --h5ad --strand=forward --parity=single \
-  -w v3_onlist.txt -x "1,10,18,1,30,38,1,50,58:1,0,10:0,0,0 \
+  -w v3_onlist.txt -x "1,10,18,1,30,38,1,50,58:1,0,10:0,0,0" \
   -g t2g.txt -i index.idx R1.fastq.gz R2.fastq.gz
 ```
 
@@ -213,7 +213,7 @@ When you run kallisto through kb-python, it generates a file called run_info.jso
     * scRNA-seq (10x): usually 60–90%
     * Multiome or non-standard assays: more variable
 
-    Very low values (e.g., <30%) almost always indicate a mismatch between your reference and your reads rather than a biological.
+    Very low values (e.g., <30%) almost always indicate a mismatch between your reference and your reads rather than a biological issue.
 
 3. `p_unique`
 

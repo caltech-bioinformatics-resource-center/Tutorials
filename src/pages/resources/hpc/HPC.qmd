@@ -71,7 +71,7 @@ Caltech’s HPC uses **Simple Linux Utility for Resource Management (SLURM)** to
 - Monitor running jobs
 - Handle parallel and distributed computing tasks
 
-The means, instead of running a command or script directly, you will typically place your command inside a job submission script and submit it to SLURM. Below we provide a brief tutorial for basic SLURM usage. To see a complete example of a SLURM job script for running `kb count`, please refer to our [SLURM example script](/pages/resources/hpc/slurm_example.qmd).
+This means, instead of running a command or script directly, you will typically place your command inside a job submission script and submit it to SLURM. Below we provide a brief tutorial for basic SLURM usage. To see a complete example of a SLURM job script for running `kb count`, please refer to our [SLURM example script](/pages/resources/hpc/slurm_example.qmd).
 
 ### Useful SLURM Commands
 
@@ -96,7 +96,7 @@ A few useful #SBATCH lines are:
 - `#SBATCH --job-name=job_name`
     Assigns a descriptive job name. The job name appears in `squeue`.
 - `#SBATCH --account=mylab` 
-    Charges the job to your lab's HPC allocation. If you have access to multiple accounts, you must include this to ensure the proper account is charged. If ommited, your default account will be charged.
+    Charges the job to your lab's HPC allocation. If you have access to multiple accounts, you must include this to ensure the proper account is charged. If omitted, your default account will be charged.
 - `#SBATCH -p expansion`
     Selects the partition. The Caltech HPC has two partitions: *expansion* (for general jobs) and *GPU* (for jobs requiring a GPU). Genome alignment does not currently have the functionality to be run on a GPU, so you must always choose expansion for alignment jobs.
 - `#SBATCH --time=HH:MM:SS`
@@ -105,11 +105,11 @@ A few useful #SBATCH lines are:
     Allocates 8 CPU cores (threads) to the job. By default, this values is set to 1. You may increase or decrease this depending on your analysis and current cluster availability. If you allocate multiple threads, make sure that the program you are running is configured to use the same number of threads.
 - `#SBATCH --mem=20G`
     Allocates 20GB of memory for the job. If your job fails with an out-of-memory error, increase this value. Note this setting controls RAM usage only — not disk storage.
-- `#SBATCH --output=\path\to\output`
+- `#SBATCH --output=/path/to/output`
     Specifies where standard output will be written. By default, SLURM creates a file named `slurm-<jobid>.out` in the working directory.
-- `#SBATCH --error=\path\to\error`
+- `#SBATCH --error=/path/to/error`
     Specifies where standard error messages will be written. By default, SLURM creates `slurm-<jobid>.err` in the working directory.
-- `#SBATCH --chdir=\path\to\working_directory`
+- `#SBATCH --chdir=/path/to/working_directory`
     Sets the working directory for the job. By default, this is the directory from which you submit the job.
 
 For any SLURM job file, we recommend specifying at minimum:
@@ -174,6 +174,6 @@ If preferred, you may transfer these processed outputs to your personal machine 
 This workflow — heavy preprocessing on the HPC followed by downstream analysis locally — is common in genomics and helps reduce unnecessary use of shared HPC resources.
 
 ::: {.callout-important}
-Before downloading a file to your personal device, you should verify the file size with `ls -lh`. Then consider whether your local machine has sufficient, disk storage, RAM (system memory), and processing power to carry out the required downstream analyses. If a file is very large or if downstream analysis requires substantial memory, it is often better to continue working on the HPC.
+Before downloading a file to your personal device, you should verify the file size with `ls -lh`. Then consider whether your local machine has sufficient disk storage, RAM (system memory), and processing power to carry out the required downstream analyses. If a file is very large or if downstream analysis requires substantial memory, it is often better to continue working on the HPC.
 :::
 

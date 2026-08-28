@@ -186,17 +186,17 @@ fi
 For example, to check if a file exists before running a command, you use:
 ```bash
 if [ ! -f "$FILE" ]; then
-    echo "File exists and is not empty."
-else
     echo "File is missing or empty."
     exit 1
+else
+    echo "File exists and is not empty."
 fi
 ```
 
 **For Loops**
 
 For loops allow you to repeatedly execute a block of code for each item in a list.
-A for loop has the basice structure:
+A for loop has the basic structure:
 ```bash
 for item in list; do
   # commands to execute for each item

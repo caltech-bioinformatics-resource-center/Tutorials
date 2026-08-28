@@ -30,7 +30,7 @@ Once downloaded, navigate to the directory containing the file and run:
 
 ```bash
 # Unzip file
-tar -xf /path/to/fastqc_v0.12.1.zip
+unzip /path/to/fastqc_v0.12.1.zip
 
 # Make fastqc executable
 chmod 755 /path/to/FastQC/fastqc

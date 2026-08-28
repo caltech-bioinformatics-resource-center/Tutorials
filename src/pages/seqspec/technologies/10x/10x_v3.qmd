@@ -6,7 +6,7 @@ title: "`seqspec` Tutorial: 10X Chromium Next GEM Single Cell 3' v3.1 Dual-Index
 To download a template seqspec, click <a href=/seqspec/templates/10x/10xV3_template.yaml download>here</a>, and then follow this tutorial to tailor the **seqspec** to your dataset.
 ::: 
 
-## Summmary of Library Structure and Sequencing
+## Summary of Library Structure and Sequencing
 ![](10x_dual.png){width=1000 fig-align="center"}
 
 Above is a diagram of the **10X Chromium Single Cell 3' Dual-Indexed v3 Library**. The library is structured as follows from 5' to 3':
@@ -25,7 +25,7 @@ Above is a diagram of the **10X Chromium Single Cell 3' Dual-Indexed v3 Library*
 
 <br>
 
-10x Genomics recommends that the libary be sequenced in the following way:
+10x Genomics recommends that the library be sequenced in the following way:
 
 
 | Name    | Primer        | Cycles | Strand   | Coverage           |
@@ -80,7 +80,7 @@ You may have also decided not to sequence the sample indices if you did not sequ
 
 Next, for each read, you should fill out a file object referencing the corresponding file.
 
-A file object in seqspec if formatted as follows:
+A file object in seqspec is formatted as follows:
 
 ``` yaml
 - !File

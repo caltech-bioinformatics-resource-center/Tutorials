@@ -2,7 +2,7 @@
 seqspec_version: 0.3.0
 assay_id: 10x-RNA-v4
 name: 10x Genomics Chromium GEM-X Single Cell 3' v4 
-doi: https://cdn.10xgenomics.com/image/upload/v1725314293/support-documents/CG000732_ChromiumGEM-X_SingleCell3_v4_CellSurfaceProtein_UserGuide_RevB.pdf
+doi: https://cdn.10xgenomics.com/image/upload/v1725314293/support-documents/CG000731_ChromiumGEM-X_SingleCell3v4_UserGuide_RevB.pdf
 date: 2024-09-03
 description: 10x Genomics Chromium GEM-X Single Cell 3' v4 using dual Illumina multiplex index
 modalities: rna
@@ -190,7 +190,7 @@ library_spec: ##Adjust cdna length according to sequence depth##
     parent_id: null
     region_id: illumina_i7
     region_type: index
-    namer: Illumina i7 Index
+    name: Illumina i7 Index
     sequence_type: onlist
     sequence: NNNNNNNNNN
     min_len: 10

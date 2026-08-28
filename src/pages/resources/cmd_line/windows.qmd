@@ -92,7 +92,7 @@ If you plan to work from the command line, here are the most important commands 
 - `dir` — List files in the current directory
 - `pwd` (PowerShell) — Print the current working directory
 
-For example, to navigate to the directory `Documents` and list the file in `Documents`:
+For example, to navigate to the directory `Documents` and list the files in `Documents`:
 
 ```powershell
 cd Documents

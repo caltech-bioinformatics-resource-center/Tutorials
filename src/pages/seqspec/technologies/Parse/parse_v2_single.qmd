@@ -12,7 +12,7 @@ Follow one of the following links to download a template seqspec according to th
 Then, follow this tutorial to tailor the seqspec to your dataset.
 :::
 
-## Summmary of Library Structure and Sequencing
+## Summary of Library Structure and Sequencing
 ![](parse_single.png){width=1000 fig-align="center"}
 
 Above is a diagram of the **Parse Evercode WT v2 Single-Indexed Library**. The library is structured as follows from 5' to 3':
@@ -34,7 +34,7 @@ Above is a diagram of the **Parse Evercode WT v2 Single-Indexed Library**. The l
 
 <br>
 
-Parse Biosciences recommends that the libary be sequenced in the following way:
+Parse Biosciences recommends that the library be sequenced in the following way:
 
 
 | Name    | Primer        | Cycles | Strand   | Coverage                 |
@@ -69,7 +69,7 @@ library_kit: Parse Evercode WT v2 Single Index
 
 ## Step 2: Alter the Sequence Spec
 ### Update the Read Objects
-Parse recommends that you sequence Read 1 to at least 66 nucleotides, but you may have decided to sequence to up to 150 nucleotides. If that is the case, you can modify the length of Read 1 by changing the `min_len` and `max_len` to reflect the read length. For example, if you want to sequence 150 nucleotides, upate the read as follows:
+Parse recommends that you sequence Read 1 to at least 66 nucleotides, but you may have decided to sequence to up to 150 nucleotides. If that is the case, you can modify the length of Read 1 by changing the `min_len` and `max_len` to reflect the read length. For example, if you want to sequence 150 nucleotides, update the read as follows:
 
 ::: {.file-example}
 ``` yaml
@@ -93,7 +93,7 @@ You may have also decided not to sequence the sample indices if you did not sequ
 
 Next, for each read, you should fill out a file object referencing the corresponding file.
 
-A file object in seqspec if formatted as follows:
+A file object in seqspec is formatted as follows:
 
 ::: {.file-example}
 ``` yaml
@@ -163,9 +163,9 @@ library_spec:
   region_type: named
   name: rna
   sequence_type: joined
-  sequence: AATGATACGGCGACCACCGAGATCTACACNNNNNNNNTCTTTCCCTACACGACGCTCTTCCGATCTXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXNNNNNNNNCCACAGTCTCAAGCACGTGGATNNNNNNNNAGTCGTACGCCGATGCGAAACATCGGCCACNNNNNNNNNNNNNNNNNNAGATCGGAAGAGCACACGTCTGAACTCCAGTCACNNNNNNNNATCTCGTATGCCGTCTTCTGCTTG
-  min_len: 368
-  max_len: 368
+  sequence: AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCTXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXNNNNNNNNCCACAGTCTCAAGCACGTGGATNNNNNNNNAGTCGTACGCCGATGCGAAACATCGGCCACNNNNNNNNNNNNNNNNNNAGATCGGAAGAGCACACGTCTGAACTCCAGTCACNNNNNNATCTCGTATGCCGTCTTCTGCTTG
+  min_len: 382
+  max_len: 382
   onlist: null
   parent_id: null
   regions:

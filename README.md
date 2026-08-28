@@ -3,15 +3,15 @@ This site is written in Quarto. You can find the installation instructions for Q
 
 To render Quarto `.qmd` files to HTML:
 ```bash
-quarto render
+quarto render scr
 ```
 
 To preview the site from your local machine:
 ```bash
-quarto preview
+quarto preview scr
 ```
 
 To render and deploy website (after all changes are commited and pushed to origin main):
 ```bash
-quarto publish gh-pages
+quarto publish gh-pages scr
 ```

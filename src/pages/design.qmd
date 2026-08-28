@@ -72,7 +72,7 @@ An experimental design is orthogonal when each factor varies independently of th
 
 ### A Confounded Design
 
-Consider the folowing design:
+Consider the following design:
 
 |Sample	| Condition| Batch
 |---|---|---|    

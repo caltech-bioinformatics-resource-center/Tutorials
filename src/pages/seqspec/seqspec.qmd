@@ -213,7 +213,7 @@ sequence_spec:
     md5: d1410f93b53357d4f95edb0ba0d73c07
 ```
 
-### Step 3: Validate Your seqspec file with `seqspec check`
+### Validate Your seqspec file with `seqspec check`
 You can use the `seqspec check` command from the seqspec package to verify your seqspec file is correctly formatted.
 
 ```bash
@@ -223,7 +223,7 @@ seqspec check seqspec.yaml
 If your file is valid, the command will complete without errors; otherwise, it will print a description of any issues found in the specification.
 
 :::{.callout-note title="Install seqspec"}
-In order to install seqspec, follow our installation instructions [here](/pages/installation/python_packages.qmd#seqspec).
+In order to install seqspec, follow our installation instructions [here](/pages/installation/python_packages.qmd).
 :::
 
 # Summary
@@ -236,5 +236,5 @@ In order to install seqspec, follow our installation instructions [here](/pages/
 <br>
 
 :::{.highlight-section}
-To get a get an assay-specific sample seq-spec file and tutorial, select your assay [here](/pages/seqspec/seqspec_tutorials.qmd).
+To get an assay-specific sample seqspec file and tutorial, select your assay [here](/pages/seqspec/seqspec_tutorials.qmd).
 :::

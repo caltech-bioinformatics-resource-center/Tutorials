@@ -89,8 +89,8 @@ library_spec:
   name: rna
   sequence_type: joined
   sequence: AATGATACGGCGACCACCGAGATCTACACNNNNNNNNTCTTTCCCTACACGACGCTCTTCCGATCTXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXNNNNNNNNGAGGTGGTTGGANNNNNNNNCTGACCCCTCATNNNNNNNNNNNNNNNNNNAGATCGGAAGAGCACACGTCTGAACTCCAGTCACNNNNNNNNATCTCGTATGCCGTCTTCTGCTTG
-  min_len: 256
-  max_len: 256
+  min_len: 254
+  max_len: 254
   onlist: null
   parent_id: null
   regions:
@@ -156,10 +156,10 @@ library_spec:
     min_len: 8
     max_len: 8
     onlist: !Onlist
-      filename: BC1_rev.txt
+      filename: BC1_mini_rev.txt
       filetype: txt
       filesize: 4.0 KB
-      url: https://pachterlab.github.io/cbrc-spec/seqspec/onlists/Parse/v2/BC1_rev.txt
+      url: https://pachterlab.github.io/cbrc-spec/seqspec/onlists/Parse/v3/BC1_mini_rev.txt
     regions: null
 
   - !Region
@@ -184,10 +184,10 @@ library_spec:
     min_len: 8
     max_len: 8
     onlist: !Onlist
-      filename: BC2_3_rev.txt
+      filename: BC2_rev.txt
       filetype: txt
       filesize: 4.0 KB
-      url: https://pachterlab.github.io/cbrc-spec/seqspec/onlists/Parse/v2/BC2_3_rev.txt
+      url: https://pachterlab.github.io/cbrc-spec/seqspec/onlists/Parse/v3/BC2_rev.txt
     regions: null
 
   - !Region
@@ -212,10 +212,10 @@ library_spec:
     min_len: 8
     max_len: 8
     onlist: !Onlist
-      filename: BC2_3_rev.txt
+      filename: BC3_rev.txt
       filetype: txt
       filesize: 4.0 KB
-      url: https://pachterlab.github.io/cbrc-spec/seqspec/onlists/Parse/v2/BC2_3_rev.txt
+      url: https://pachterlab.github.io/cbrc-spec/seqspec/onlists/Parse/v3/BC3_rev.txt
     regions: null
 
   - !Region
@@ -246,7 +246,7 @@ library_spec:
     parent_id: null
     region_id: illumina_i7
     region_type: index
-    namer: Illumina i7 Index
+    name: Illumina i7 Index
     sequence_type: onlist
     sequence: NNNNNNNN
     min_len: 8

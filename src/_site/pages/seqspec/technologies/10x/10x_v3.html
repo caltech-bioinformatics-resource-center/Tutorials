@@ -266,7 +266,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#summmary-of-library-structure-and-sequencing" id="toc-summmary-of-library-structure-and-sequencing" class="nav-link active" data-scroll-target="#summmary-of-library-structure-and-sequencing">Summmary of Library Structure and Sequencing</a></li>
+  <li><a href="#summary-of-library-structure-and-sequencing" id="toc-summary-of-library-structure-and-sequencing" class="nav-link active" data-scroll-target="#summary-of-library-structure-and-sequencing">Summary of Library Structure and Sequencing</a></li>
   <li><a href="#step-1-fill-in-the-assay-info" id="toc-step-1-fill-in-the-assay-info" class="nav-link" data-scroll-target="#step-1-fill-in-the-assay-info">Step 1: Fill in the Assay Info</a></li>
   <li><a href="#step-2-alter-the-sequence-spec" id="toc-step-2-alter-the-sequence-spec" class="nav-link" data-scroll-target="#step-2-alter-the-sequence-spec">Step 2: Alter the Sequence Spec</a>
   <ul class="collapse">
@@ -306,8 +306,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="highlight-section">
 <p>To download a template seqspec, click <a href="../../../../seqspec/templates/10x/10xV3_template.yaml" download="">here</a>, and then follow this tutorial to tailor the <strong>seqspec</strong> to your dataset.</p>
 </div>
-<section id="summmary-of-library-structure-and-sequencing" class="level2">
-<h2 class="anchored" data-anchor-id="summmary-of-library-structure-and-sequencing">Summmary of Library Structure and Sequencing</h2>
+<section id="summary-of-library-structure-and-sequencing" class="level2">
+<h2 class="anchored" data-anchor-id="summary-of-library-structure-and-sequencing">Summary of Library Structure and Sequencing</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="10x_dual.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="1000"></p>
@@ -371,7 +371,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 <p><br></p>
-<p>10x Genomics recommends that the libary be sequenced in the following way:</p>
+<p>10x Genomics recommends that the library be sequenced in the following way:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -453,7 +453,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="add-in-the-file-objects" class="level3">
 <h3 class="anchored" data-anchor-id="add-in-the-file-objects">Add in the file objects</h3>
 <p>Next, for each read, you should fill out a file object referencing the corresponding file.</p>
-<p>A file object in seqspec if formatted as follows:</p>
+<p>A file object in seqspec is formatted as follows:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> !File</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">file_id</span><span class="kw">:</span><span class="at"> </span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">filename</span><span class="kw">:</span></span>
@@ -599,7 +599,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/caltech-bioinformatics-resource-center\.github\.io\/Tutorials\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

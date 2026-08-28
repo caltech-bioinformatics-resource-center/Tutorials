@@ -35,7 +35,7 @@ As a general rule, you should create a dedicated Conda environment for each proj
 To create a conda environment with Python, type into the command line:
 
 ```bash
-conda create --name myenv
+conda create --name myenv python
 ```
 
 and replace `myenv` with your desired environment name. Then, to activate your environment:

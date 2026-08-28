@@ -280,7 +280,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#section-3-read-structure" id="toc-section-3-read-structure" class="nav-link" data-scroll-target="#section-3-read-structure">Section 3: Read Structure</a>
   <ul class="collapse">
   <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example</a></li>
-  <li><a href="#step-3-validate-your-seqspec-file-with-seqspec-check" id="toc-step-3-validate-your-seqspec-file-with-seqspec-check" class="nav-link" data-scroll-target="#step-3-validate-your-seqspec-file-with-seqspec-check">Step 3: Validate Your seqspec file with <code>seqspec check</code></a></li>
+  <li><a href="#validate-your-seqspec-file-with-seqspec-check" id="toc-validate-your-seqspec-file-with-seqspec-check" class="nav-link" data-scroll-target="#validate-your-seqspec-file-with-seqspec-check">Validate Your seqspec file with <code>seqspec check</code></a></li>
   </ul></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   </ul>
@@ -506,8 +506,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">urltype</span><span class="kw">:</span><span class="at"> https</span></span>
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">md5</span><span class="kw">:</span><span class="at"> d1410f93b53357d4f95edb0ba0d73c07</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="step-3-validate-your-seqspec-file-with-seqspec-check" class="level3">
-<h3 class="anchored" data-anchor-id="step-3-validate-your-seqspec-file-with-seqspec-check">Step 3: Validate Your seqspec file with <code>seqspec check</code></h3>
+<section id="validate-your-seqspec-file-with-seqspec-check" class="level3">
+<h3 class="anchored" data-anchor-id="validate-your-seqspec-file-with-seqspec-check">Validate Your seqspec file with <code>seqspec check</code></h3>
 <p>You can use the <code>seqspec check</code> command from the seqspec package to verify your seqspec file is correctly formatted.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">seqspec</span> check seqspec.yaml</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If your file is valid, the command will complete without errors; otherwise, it will print a description of any issues found in the specification.</p>
@@ -521,7 +521,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In order to install seqspec, follow our installation instructions <a href="../../pages/installation/python_packages.html#seqspec">here</a>.</p>
+<p>In order to install seqspec, follow our installation instructions <a href="../../pages/installation/python_packages.html">here</a>.</p>
 </div>
 </div>
 </section>
@@ -552,7 +552,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <p><br></p>
 <div class="highlight-section">
-<p>To get a get an assay-specific sample seq-spec file and tutorial, select your assay <a href="../../pages/seqspec/seqspec_tutorials.html">here</a>.</p>
+<p>To get an assay-specific sample seqspec file and tutorial, select your assay <a href="../../pages/seqspec/seqspec_tutorials.html">here</a>.</p>
 </div>
 
 
@@ -632,7 +632,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/caltech-bioinformatics-resource-center\.github\.io\/Tutorials\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

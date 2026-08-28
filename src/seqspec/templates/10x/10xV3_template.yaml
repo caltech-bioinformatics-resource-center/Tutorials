@@ -190,7 +190,7 @@ library_spec: ##Adjust cdna length according to read length##
     parent_id: null
     region_id: illumina_i7
     region_type: index
-    namer: Illumina i7 Index
+    name: Illumina i7 Index
     sequence_type: onlist
     sequence: NNNNNNNNNN
     min_len: 10

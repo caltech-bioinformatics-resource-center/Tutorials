@@ -324,7 +324,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.471-b09, mixed mode)</pre>
 <p>The entire FastQC program is distributed as a standalone zip archive. Download the latest version (v0.12.1 at the time of writing) from the official <a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.12.1.zip">FastQC website</a>.</p>
 <p>Once downloaded, navigate to the directory containing the file and run:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Unzip file</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-xf</span> /path/to/fastqc_v0.12.1.zip</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span> /path/to/fastqc_v0.12.1.zip</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Make fastqc executable</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> 755 /path/to/FastQC/fastqc</span>
@@ -425,7 +425,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.471-b09, mixed mode)</pre>
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/caltech-bioinformatics-resource-center\.github\.io\/Tutorials\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
