@@ -380,7 +380,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Monitor running jobs</li>
 <li>Handle parallel and distributed computing tasks</li>
 </ul>
-<p>The means, instead of running a command or script directly, you will typically place your command inside a job submission script and submit it to SLURM. Below we provide a brief tutorial for basic SLURM usage. To see a complete example of a SLURM job script for running <code>kb count</code>, please refer to our <a href="../../../pages/resources/hpc/slurm_example.html">SLURM example script</a>.</p>
+<p>This means, instead of running a command or script directly, you will typically place your command inside a job submission script and submit it to SLURM. Below we provide a brief tutorial for basic SLURM usage. To see a complete example of a SLURM job script for running <code>kb count</code>, please refer to our <a href="../../../pages/resources/hpc/slurm_example.html">SLURM example script</a>.</p>
 <section id="useful-slurm-commands" class="level3">
 <h3 class="anchored" data-anchor-id="useful-slurm-commands">Useful SLURM Commands</h3>
 <ul>
@@ -398,14 +398,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>A few useful #SBATCH lines are:</p>
 <ul>
 <li><code>#SBATCH --job-name=job_name</code> Assigns a descriptive job name. The job name appears in <code>squeue</code>.</li>
-<li><code>#SBATCH --account=mylab</code> Charges the job to your lab’s HPC allocation. If you have access to multiple accounts, you must include this to ensure the proper account is charged. If ommited, your default account will be charged.</li>
+<li><code>#SBATCH --account=mylab</code> Charges the job to your lab’s HPC allocation. If you have access to multiple accounts, you must include this to ensure the proper account is charged. If omitted, your default account will be charged.</li>
 <li><code>#SBATCH -p expansion</code> Selects the partition. The Caltech HPC has two partitions: <em>expansion</em> (for general jobs) and <em>GPU</em> (for jobs requiring a GPU). Genome alignment does not currently have the functionality to be run on a GPU, so you must always choose expansion for alignment jobs.</li>
 <li><code>#SBATCH --time=HH:MM:SS</code> This sets the maximum runtime. If the job exceeds this time limit, SLURM will terminate it.</li>
 <li><code>#SBATCH --cpus-per-task=8</code> Allocates 8 CPU cores (threads) to the job. By default, this values is set to 1. You may increase or decrease this depending on your analysis and current cluster availability. If you allocate multiple threads, make sure that the program you are running is configured to use the same number of threads.</li>
 <li><code>#SBATCH --mem=20G</code> Allocates 20GB of memory for the job. If your job fails with an out-of-memory error, increase this value. Note this setting controls RAM usage only — not disk storage.</li>
-<li><code>#SBATCH --output=\path\to\output</code> Specifies where standard output will be written. By default, SLURM creates a file named <code>slurm-&lt;jobid&gt;.out</code> in the working directory.</li>
-<li><code>#SBATCH --error=\path\to\error</code> Specifies where standard error messages will be written. By default, SLURM creates <code>slurm-&lt;jobid&gt;.err</code> in the working directory.</li>
-<li><code>#SBATCH --chdir=\path\to\working_directory</code> Sets the working directory for the job. By default, this is the directory from which you submit the job.</li>
+<li><code>#SBATCH --output=/path/to/output</code> Specifies where standard output will be written. By default, SLURM creates a file named <code>slurm-&lt;jobid&gt;.out</code> in the working directory.</li>
+<li><code>#SBATCH --error=/path/to/error</code> Specifies where standard error messages will be written. By default, SLURM creates <code>slurm-&lt;jobid&gt;.err</code> in the working directory.</li>
+<li><code>#SBATCH --chdir=/path/to/working_directory</code> Sets the working directory for the job. By default, this is the directory from which you submit the job.</li>
 </ul>
 <p>For any SLURM job file, we recommend specifying at minimum:</p>
 <ul>
@@ -486,7 +486,7 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Before downloading a file to your personal device, you should verify the file size with <code>ls -lh</code>. Then consider whether your local machine has sufficient, disk storage, RAM (system memory), and processing power to carry out the required downstream analyses. If a file is very large or if downstream analysis requires substantial memory, it is often better to continue working on the HPC.</p>
+<p>Before downloading a file to your personal device, you should verify the file size with <code>ls -lh</code>. Then consider whether your local machine has sufficient disk storage, RAM (system memory), and processing power to carry out the required downstream analyses. If a file is very large or if downstream analysis requires substantial memory, it is often better to continue working on the HPC.</p>
 </div>
 </div>
 

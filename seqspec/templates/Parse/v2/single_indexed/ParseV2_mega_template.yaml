@@ -1,16 +1,16 @@
 !Assay
 seqspec_version: 0.3.0
-assay_id: Parse-Evercode-WT-Mega-v2-dual-index
-name: Dual-Indexed Parse Evercode WT Mega v2
+assay_id: Parse-Evercode-WT-Mega-v2-single-index
+name: Single-Indexed Parse Evercode WT Mega v2
 doi: https://support.parsebiosciences.com/hc/en-us/article_attachments/24507636704020
 date: 2024-02-20
-description: Parse Evercode WT Mega v2 using dual Illumina multiplex index
+description: Parse Evercode WT Mega v2 using a single Illumina multiplex index
 modalities: rna
 lib_struct: https://igvf.github.io/seqspec/
 sequence_protocol: ##PROTOCOL##
 sequence_kit: ##SEQ_KIT##
 library_protocol: Parse Evercode WT v2
-library_kit: Parse Evercode WT Mega v2 Dual Index
+library_kit: Parse Evercode WT Mega v2 Single Index
 
 sequence_spec:
 - !Read
@@ -123,10 +123,10 @@ library_spec: ##Adjust cdna length according to sequence depth##
     min_len: 8
     max_len: 8
     onlist: !Onlist
-      filename: BC1_rev.txt
+      filename: BC1_mega_rev.txt
       filetype: txt
       filesize: 4.0 KB
-      url: https://pachterlab.github.io/cbrc-spec/seqspec/onlists/Parse/v2/BC1_rev.txt
+      url: https://pachterlab.github.io/cbrc-spec/seqspec/onlists/Parse/v2/BC1_mega_rev.txt
     regions: null
 
   - !Region
@@ -213,7 +213,7 @@ library_spec: ##Adjust cdna length according to sequence depth##
     parent_id: null
     region_id: illumina_i7
     region_type: index
-    namer: Illumina i7 Index
+    name: Illumina i7 Index
     sequence_type: onlist
     sequence: NNNNNN
     min_len: 6

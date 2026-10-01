@@ -314,7 +314,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><a href="www.github.com"><strong>GitHub</strong></a> is a web-based platform for hosting and sharing code. It is built on top of <a href="https://git-scm.com/"><strong>Git</strong></a>, a tool that tracks changes to files over time.</p>
+<p><a href="https://www.github.com"><strong>GitHub</strong></a> is a web-based platform for hosting and sharing code. It is built on top of <a href="https://git-scm.com/"><strong>Git</strong></a>, a tool that tracks changes to files over time.</p>
 <p>In practical terms, Git allows you to:</p>
 <ul>
 <li>Record changes to your scripts</li>
@@ -322,7 +322,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Document when and why changes were made</li>
 </ul>
 <p>GitHub provides an online location where those tracked files can be stored, backed up, and shared with others.</p>
-<p>Below we will provide a quick tutorial to Git and GitHub, highlighting the basic tools you should be familiar with. If you need further clarification or wish to learn about more advanced features (e.g.&nbsp;branching, merging), GitHub has excellent tutorials on their <a href="https://docs.github.com/en/get-started/start-your-journey/hello-world">documentation site</a>.</p>
+<p>Below we will provide a quick tutorial on Git and GitHub, highlighting the basic tools you should be familiar with. If you need further clarification or wish to learn about more advanced features (e.g.&nbsp;branching, merging), GitHub has excellent tutorials on their <a href="https://docs.github.com/en/get-started/start-your-journey/hello-world">documentation site</a>.</p>
 <section id="why-use-github-for-omics-analyses" class="level2">
 <h2 class="anchored" data-anchor-id="why-use-github-for-omics-analyses">Why use GitHub for Omics Analyses?</h2>
 <p>Omics workflows are often complex, and there is rarely a single “correct” way to analyze a dataset. Even when working with the same raw data, researchers may make different — yet reasonable — choices at each processing step.</p>
@@ -425,7 +425,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="using-a-.gitignore-file">Using a .gitignore File</h2>
 <p>We usually keep all of our files for an analysis in a single project directory, and it is inconvenient to physically separate out the files that should be saved to GitHub and the ones which should not.</p>
 <p>The <strong>.gitignore file tells Git which files it should not track</strong>. If you do not already have a text file called <code>.gitignore</code> in your repository, you should create one.</p>
-<p>An example .gitignore file for a omics analysis project might look like this:</p>
+<p>An example .gitignore file for an omics analysis project might look like this:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Raw sequencing data</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*.fastq</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ex">*.fastq.gz</span></span>

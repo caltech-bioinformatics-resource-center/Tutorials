@@ -274,7 +274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#step-2-align-to-reference-genome" id="toc-step-2-align-to-reference-genome" class="nav-link" data-scroll-target="#step-2-align-to-reference-genome">Step 2: Align to Reference Genome</a>
   <ul class="collapse">
-  <li><a href="#batch-pseudoaligment" id="toc-batch-pseudoaligment" class="nav-link" data-scroll-target="#batch-pseudoaligment">Batch Pseudoaligment</a></li>
+  <li><a href="#batch-pseudoalignment" id="toc-batch-pseudoalignment" class="nav-link" data-scroll-target="#batch-pseudoalignment">Batch Pseudoalignment</a></li>
   <li><a href="#parse-evercode-wt-v3-using-a-custom-specification" id="toc-parse-evercode-wt-v3-using-a-custom-specification" class="nav-link" data-scroll-target="#parse-evercode-wt-v3-using-a-custom-specification">Parse Evercode WT v3: Using a Custom Specification</a></li>
   <li><a href="#parse-evercode-wt-substituting-barcodes-with-the--r-argument" id="toc-parse-evercode-wt-substituting-barcodes-with-the--r-argument" class="nav-link" data-scroll-target="#parse-evercode-wt-substituting-barcodes-with-the--r-argument">Parse Evercode WT: Substituting Barcodes with the <code>-r</code> Argument</a></li>
   <li><a href="#validating-pseudoalignment-with-the-run_info.json-file" id="toc-validating-pseudoalignment-with-the-run_info.json-file" class="nav-link" data-scroll-target="#validating-pseudoalignment-with-the-run_info.json-file">Validating Pseudoalignment with the <code>run_info.json</code> file</a></li>
@@ -335,17 +335,17 @@ Note
 <li><p>Processing <strong>FASTQ</strong> files into the <strong>BUS format</strong> with <code>kb count</code></p></li>
 <li><p>Generating a count matrix summarizing gene expression per cell</p></li>
 </ul>
-<div class="callout callout-style-default callout-note callout-titled" title="Install seqspec">
+<div class="callout callout-style-default callout-note callout-titled" title="Install kb-python">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Install seqspec
+<span class="screen-reader-only">Note</span>Install kb-python
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In order to install seqspec, follow our installation instructions <a href="../../pages/installation/python_packages.html#kb-python">here</a>.</p>
+<p>In order to install kb-python, follow our installation instructions <a href="../../pages/installation/python_packages.html">here</a>.</p>
 </div>
 </div>
 <section id="workflows" class="level2">
@@ -402,7 +402,7 @@ Note
 </section>
 <section id="step-2-align-to-reference-genome" class="level2">
 <h2 class="anchored" data-anchor-id="step-2-align-to-reference-genome">Step 2: Align to Reference Genome</h2>
-<p>The next step is to generate a count matrix by pseudoaligning the reads to your reference index using the <code>kb count</code> command. For example, suppose you have two paired-end FASTQ files (read1.fastq and read2.fastq) from a 10x Chromium NextGen v3 library.</p>
+<p>The next step is to generate a count matrix by pseudoaligning the reads to your reference index using the <code>kb count</code> command. For example, suppose you have two paired-end FASTQ files (read1.fastq and read2.fastq) from a 10x Chromium Next GEM v3 library.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -450,11 +450,11 @@ Important
 <p>Change <code>-x 10XV3</code> according to the specific technology you used to generate your library.</p>
 <ul>
 <li>10X Chromium GEM-X V4: <code>-x 10XV4</code></li>
-<li>Parse Evercode WT v2: <code>-x SPLITSEQ</code></li>
+<li>Parse Evercode WT v2: <code>-x SPLIT-SEQ</code></li>
 </ul>
 <p>To see a complete list of technologies and their corresponding technology strings, type <code>kb --list</code> into your terminal.</p>
-<section id="batch-pseudoaligment" class="level3">
-<h3 class="anchored" data-anchor-id="batch-pseudoaligment">Batch Pseudoaligment</h3>
+<section id="batch-pseudoalignment" class="level3">
+<h3 class="anchored" data-anchor-id="batch-pseudoalignment">Batch Pseudoalignment</h3>
 <p>In most scRNA-seq experiments, you will have multiple samples, each with its own pair of FASTQ files. Instead of running <code>kb count</code> separately on every sample, kb-python allows you to process many samples in a single command using the <code>--batch-barcodes</code> flag.</p>
 <p>To perform a batch pseudoalignment, run:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">kb</span> count ... <span class="at">--batch-barcodes</span> batch.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -468,15 +468,15 @@ Important
 <h3 class="anchored" data-anchor-id="parse-evercode-wt-v3-using-a-custom-specification">Parse Evercode WT v3: Using a Custom Specification</h3>
 <p>Currently, <strong>kb-python</strong> does not include a built-in specification for the <strong>Parse Evercode WT v3</strong> chemistry. To pseudoalign Parse v3 data, you must manually specify the assay configuration by providing:</p>
 <ul>
-<li><p><a href="\files\v3_onlist.txt" download="">v3_onlist.txt</a> — a list of valid cell barcodes</p></li>
+<li><p><a href="../../files/v3_onlist.txt" download="">v3_onlist.txt</a> — a list of valid cell barcodes</p></li>
 <li><p>a technology string defining barcode positions within the read: <code>-x "1,10,18,1,30,38,1,50,58:1,0,10:0,0,0"</code></p></li>
-<li><p>the orientation of the first read (R1) with relative to your library specification: <code>--strand=forward</code></p></li>
-<li><p>the read parity (<code>paired</code> if both paired-end reads contain the biological sequence and <code>single</code> otherwise): <code>--paired=single</code></p></li>
+<li><p>the orientation of the first read (R1) relative to your library specification: <code>--strand=forward</code></p></li>
+<li><p>the read parity (<code>paired</code> if both paired-end reads contain the biological sequence and <code>single</code> otherwise): <code>--parity=single</code></p></li>
 </ul>
 <p>Then, run:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">kb</span> count <span class="at">--h5ad</span> <span class="at">--strand</span><span class="op">=</span>forward <span class="at">--parity</span><span class="op">=</span>single <span class="dt">\</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-w</span> v3_onlist.txt <span class="at">-x</span> <span class="st">"1,10,18,1,30,38,1,50,58:1,0,10:0,0,0 </span><span class="dt">\</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="st">  -g t2g.txt -i index.idx R1.fastq.gz R2.fastq.gz</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-w</span> v3_onlist.txt <span class="at">-x</span> <span class="st">"1,10,18,1,30,38,1,50,58:1,0,10:0,0,0"</span> <span class="dt">\</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">-g</span> t2g.txt <span class="at">-i</span> index.idx R1.fastq.gz R2.fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="parse-evercode-wt-substituting-barcodes-with-the--r-argument" class="level3">
 <h3 class="anchored" data-anchor-id="parse-evercode-wt-substituting-barcodes-with-the--r-argument">Parse Evercode WT: Substituting Barcodes with the <code>-r</code> Argument</h3>
@@ -521,7 +521,7 @@ Important
 <li>scRNA-seq (10x): usually 60–90%</li>
 <li>Multiome or non-standard assays: more variable</li>
 </ul>
-<p>Very low values (e.g., &lt;30%) almost always indicate a mismatch between your reference and your reads rather than a biological.</p></li>
+<p>Very low values (e.g., &lt;30%) almost always indicate a mismatch between your reference and your reads rather than a biological issue.</p></li>
 <li><p><code>p_unique</code></p>
 <p>This value reports the fraction of reads that pseudoaligned uniquely to a single transcript rather than mapping to multiple possible targets. For most scRNA-seq datasets, a value above 20% is expected, though this depends heavily on the organism, assay, and read length; in some cases, values as low as 10% can still be normal.</p>
 <p>A low <code>p_unique</code> can occur when:</p>

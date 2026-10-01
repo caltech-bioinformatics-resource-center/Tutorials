@@ -266,7 +266,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#summmary-of-library-structure-and-sequencing" id="toc-summmary-of-library-structure-and-sequencing" class="nav-link active" data-scroll-target="#summmary-of-library-structure-and-sequencing">Summmary of Library Structure and Sequencing</a></li>
+  <li><a href="#summary-of-library-structure-and-sequencing" id="toc-summary-of-library-structure-and-sequencing" class="nav-link active" data-scroll-target="#summary-of-library-structure-and-sequencing">Summary of Library Structure and Sequencing</a></li>
   <li><a href="#step-1-fill-in-the-assay-info" id="toc-step-1-fill-in-the-assay-info" class="nav-link" data-scroll-target="#step-1-fill-in-the-assay-info">Step 1: Fill in the Assay Info</a></li>
   <li><a href="#step-2-alter-the-sequence-spec" id="toc-step-2-alter-the-sequence-spec" class="nav-link" data-scroll-target="#step-2-alter-the-sequence-spec">Step 2: Alter the Sequence Spec</a>
   <ul class="collapse">
@@ -312,8 +312,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Then, follow this tutorial to tailor the seqspec to your dataset.</p>
 </div>
-<section id="summmary-of-library-structure-and-sequencing" class="level2">
-<h2 class="anchored" data-anchor-id="summmary-of-library-structure-and-sequencing">Summmary of Library Structure and Sequencing</h2>
+<section id="summary-of-library-structure-and-sequencing" class="level2">
+<h2 class="anchored" data-anchor-id="summary-of-library-structure-and-sequencing">Summary of Library Structure and Sequencing</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="parse_single.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="1000"></p>
@@ -392,7 +392,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 <p><br></p>
-<p>Parse Biosciences recommends that the libary be sequenced in the following way:</p>
+<p>Parse Biosciences recommends that the library be sequenced in the following way:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 13%">
@@ -459,7 +459,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="step-2-alter-the-sequence-spec">Step 2: Alter the Sequence Spec</h2>
 <section id="update-the-read-objects" class="level3">
 <h3 class="anchored" data-anchor-id="update-the-read-objects">Update the Read Objects</h3>
-<p>Parse recommends that you sequence Read 1 to at least 66 nucleotides, but you may have decided to sequence to up to 150 nucleotides. If that is the case, you can modify the length of Read 1 by changing the <code>min_len</code> and <code>max_len</code> to reflect the read length. For example, if you want to sequence 150 nucleotides, upate the read as follows:</p>
+<p>Parse recommends that you sequence Read 1 to at least 66 nucleotides, but you may have decided to sequence to up to 150 nucleotides. If that is the case, you can modify the length of Read 1 by changing the <code>min_len</code> and <code>max_len</code> to reflect the read length. For example, if you want to sequence 150 nucleotides, update the read as follows:</p>
 <div class="file-example">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> !Read</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">read_id</span><span class="kw">:</span><span class="at"> read_1</span></span>
@@ -478,7 +478,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="add-in-the-file-objects" class="level3">
 <h3 class="anchored" data-anchor-id="add-in-the-file-objects">Add in the file objects</h3>
 <p>Next, for each read, you should fill out a file object referencing the corresponding file.</p>
-<p>A file object in seqspec if formatted as follows:</p>
+<p>A file object in seqspec is formatted as follows:</p>
 <div class="file-example">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> !File</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">file_id</span><span class="kw">:</span><span class="at"> </span></span>
@@ -540,9 +540,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">region_type</span><span class="kw">:</span><span class="at"> named</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> rna</span></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">sequence_type</span><span class="kw">:</span><span class="at"> joined</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">sequence</span><span class="kw">:</span><span class="at"> AATGATACGGCGACCACCGAGATCTACACNNNNNNNNTCTTTCCCTACACGACGCTCTTCCGATCTXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXNNNNNNNNCCACAGTCTCAAGCACGTGGATNNNNNNNNAGTCGTACGCCGATGCGAAACATCGGCCACNNNNNNNNNNNNNNNNNNAGATCGGAAGAGCACACGTCTGAACTCCAGTCACNNNNNNNNATCTCGTATGCCGTCTTCTGCTTG</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">min_len</span><span class="kw">:</span><span class="at"> </span><span class="dv">368</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">max_len</span><span class="kw">:</span><span class="at"> </span><span class="dv">368</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">sequence</span><span class="kw">:</span><span class="at"> AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCTXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXNNNNNNNNCCACAGTCTCAAGCACGTGGATNNNNNNNNAGTCGTACGCCGATGCGAAACATCGGCCACNNNNNNNNNNNNNNNNNNAGATCGGAAGAGCACACGTCTGAACTCCAGTCACNNNNNNATCTCGTATGCCGTCTTCTGCTTG</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">min_len</span><span class="kw">:</span><span class="at"> </span><span class="dv">382</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">max_len</span><span class="kw">:</span><span class="at"> </span><span class="dv">382</span></span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">onlist</span><span class="kw">:</span><span class="at"> </span><span class="ch">null</span></span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">parent_id</span><span class="kw">:</span><span class="at"> </span><span class="ch">null</span></span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">regions</span><span class="kw">:</span></span>
