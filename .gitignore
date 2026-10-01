@@ -3,3 +3,4 @@
 .vscode**
 **.tar**
 **.fastq**
+.DS_Store
