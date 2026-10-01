@@ -430,39 +430,15 @@ Written by Maya Caskey (based off older versions by Joe Rich, Kyung Hoi (Joseph)
 <h2 class="anchored" data-anchor-id="step-1-read-pseudoalignment">Step 1: Read Pseudoalignment</h2>
 <section id="download-a-pre-built-index-with-kb-ref" class="level3">
 <h3 class="anchored" data-anchor-id="download-a-pre-built-index-with-kb-ref">Download a Pre-Built Index with <code>kb ref</code></h3>
-<div id="cell-17" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="d7f50e9c-6a87-475f-ba0b-ac624deb60b0" data-execution_count="6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>kb ref <span class="op">-</span>d human <span class="op">-</span>i index.idx <span class="op">-</span>g t2g.txt $KB_BIN_FLAGS</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[2026-10-01 14:43:32,453]    INFO [download] Skipping download because some files already exist. Use the --overwrite flag to overwrite.</code></pre>
-</div>
+<div id="cell-17" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="d7f50e9c-6a87-475f-ba0b-ac624deb60b0">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>kb ref <span class="op">-</span>d human <span class="op">-</span>i sc_data<span class="op">/</span>index.idx <span class="op">-</span>g sc_data<span class="op">/</span>t2g.txt $KB_BIN_FLAGS</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="pseudoalign-reads-to-reference-with-kb-count" class="level3">
 <h3 class="anchored" data-anchor-id="pseudoalign-reads-to-reference-with-kb-count">Pseudoalign Reads to Reference with <code>kb count</code></h3>
 <p>Here we use <code>kb count</code> to pseudoalign our reads to the reference transcriptome and generate a count matrix. This should be done for each sample separately. Here we have only one sample, so we will run <code>kb count</code> once. The data for a single sample can be distributed across multiple files corresponding to different lanes or sequencing runs, but they should all be pseudoaligned together to generate a single count matrix for that sample.</p>
-<div id="cell-20" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="aedcf646-bef1-457f-d8ef-dc4570369240" data-execution_count="7">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This step runs `kb` to pseudoalign the reads, and then generate the cells x gene matrix in h5ad format.</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>kb count <span class="op">-</span>i index.idx <span class="op">-</span>g t2g.txt <span class="op">-</span>x <span class="dv">10</span><span class="er">XV3</span> <span class="op">--</span>h5ad <span class="op">-</span>t <span class="dv">2</span> $KB_BIN_FLAGS <span class="op">\</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>SC3_v3_NextGem_SI_CSP<span class="op">-</span>Labeled_PBMCs_1K_fastqs<span class="op">/</span>SC3_v3_NextGem_SI_CSP<span class="op">-</span>Labeled_PBMCs_1K_gex_fastqs<span class="op">/</span>SC3_v3_NextGem_SI_CSP<span class="op">-</span>Labeled_PBMCs_1K_gex_S1_L002_R1_001.fastq.gz <span class="op">\</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>SC3_v3_NextGem_SI_CSP<span class="op">-</span>Labeled_PBMCs_1K_fastqs<span class="op">/</span>SC3_v3_NextGem_SI_CSP<span class="op">-</span>Labeled_PBMCs_1K_gex_fastqs<span class="op">/</span>SC3_v3_NextGem_SI_CSP<span class="op">-</span>Labeled_PBMCs_1K_gex_S1_L002_R2_001.fastq.gz <span class="op">\</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>SC3_v3_NextGem_SI_CSP<span class="op">-</span>Labeled_PBMCs_1K_fastqs<span class="op">/</span>SC3_v3_NextGem_SI_CSP<span class="op">-</span>Labeled_PBMCs_1K_gex_fastqs<span class="op">/</span>SC3_v3_NextGem_SI_CSP<span class="op">-</span>Labeled_PBMCs_1K_gex_S1_L003_R1_001.fastq.gz <span class="op">\</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>SC3_v3_NextGem_SI_CSP<span class="op">-</span>Labeled_PBMCs_1K_fastqs<span class="op">/</span>SC3_v3_NextGem_SI_CSP<span class="op">-</span>Labeled_PBMCs_1K_gex_fastqs<span class="op">/</span>SC3_v3_NextGem_SI_CSP<span class="op">-</span>Labeled_PBMCs_1K_gex_S1_L003_R2_001.fastq.gz <span class="op">\</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>SC3_v3_NextGem_SI_CSP<span class="op">-</span>Labeled_PBMCs_1K_fastqs<span class="op">/</span>SC3_v3_NextGem_SI_CSP<span class="op">-</span>Labeled_PBMCs_1K_gex_fastqs<span class="op">/</span>SC3_v3_NextGem_SI_CSP<span class="op">-</span>Labeled_PBMCs_1K_gex_S1_L004_R1_001.fastq.gz <span class="op">\</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>SC3_v3_NextGem_SI_CSP<span class="op">-</span>Labeled_PBMCs_1K_fastqs<span class="op">/</span>SC3_v3_NextGem_SI_CSP<span class="op">-</span>Labeled_PBMCs_1K_gex_fastqs<span class="op">/</span>SC3_v3_NextGem_SI_CSP<span class="op">-</span>Labeled_PBMCs_1K_gex_S1_L004_R2_001.fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[2026-10-01 14:43:38,164]    INFO [count] Skipping kallisto bus because output files already exist. Use the --overwrite flag to overwrite.
-[2026-10-01 14:43:38,164]    INFO [count] Sorting BUS file ./output.bus to ./tmp/output.s.bus
-[2026-10-01 14:43:42,231]    INFO [count] On-list not provided
-[2026-10-01 14:43:42,232]    INFO [count] Copying pre-packaged 10XV3 on-list to .
-[2026-10-01 14:43:42,478]    INFO [count] Inspecting BUS file ./tmp/output.s.bus
-[2026-10-01 14:43:49,203]    INFO [count] Correcting BUS records in ./tmp/output.s.bus to ./tmp/output.s.c.bus with on-list ./10x_version3_whitelist.txt
-[2026-10-01 14:43:55,409]    INFO [count] Sorting BUS file ./tmp/output.s.c.bus to ./output.unfiltered.bus
-[2026-10-01 14:43:57,475]    INFO [count] Generating count matrix ./counts_unfiltered/cells_x_genes from BUS file ./output.unfiltered.bus
-[2026-10-01 14:44:00,429]    INFO [count] Writing gene names to file ./counts_unfiltered/cells_x_genes.genes.names.txt
-[2026-10-01 14:44:00,587] WARNING [count] 13914 gene IDs do not have corresponding valid gene names. These genes will use their gene IDs instead.
-[2026-10-01 14:44:00,601]    INFO [count] Reading matrix ./counts_unfiltered/cells_x_genes.mtx
-[2026-10-01 14:44:00,771]    INFO [count] Writing matrix to h5ad ./counts_unfiltered/adata.h5ad</code></pre>
-</div>
+<div id="cell-20" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="aedcf646-bef1-457f-d8ef-dc4570369240">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This step runs `kb` to pseudoalign the reads, and then generate the cells x gene matrix in h5ad format.!kb count -i sc_data/index.idx -g sc_data/t2g.txt -o sc_data -x 10XV3 --h5ad -t 2 $KB_BIN_FLAGS \SC3_v3_NextGem_SI_CSP-Labeled_PBMCs_1K_fastqs/SC3_v3_NextGem_SI_CSP-Labeled_PBMCs_1K_gex_fastqs/SC3_v3_NextGem_SI_CSP-Labeled_PBMCs_1K_gex_S1_L002_R1_001.fastq.gz \SC3_v3_NextGem_SI_CSP-Labeled_PBMCs_1K_fastqs/SC3_v3_NextGem_SI_CSP-Labeled_PBMCs_1K_gex_fastqs/SC3_v3_NextGem_SI_CSP-Labeled_PBMCs_1K_gex_S1_L002_R2_001.fastq.gz \SC3_v3_NextGem_SI_CSP-Labeled_PBMCs_1K_fastqs/SC3_v3_NextGem_SI_CSP-Labeled_PBMCs_1K_gex_fastqs/SC3_v3_NextGem_SI_CSP-Labeled_PBMCs_1K_gex_S1_L003_R1_001.fastq.gz \SC3_v3_NextGem_SI_CSP-Labeled_PBMCs_1K_fastqs/SC3_v3_NextGem_SI_CSP-Labeled_PBMCs_1K_gex_fastqs/SC3_v3_NextGem_SI_CSP-Labeled_PBMCs_1K_gex_S1_L003_R2_001.fastq.gz \SC3_v3_NextGem_SI_CSP-Labeled_PBMCs_1K_fastqs/SC3_v3_NextGem_SI_CSP-Labeled_PBMCs_1K_gex_fastqs/SC3_v3_NextGem_SI_CSP-Labeled_PBMCs_1K_gex_S1_L004_R1_001.fastq.gz \SC3_v3_NextGem_SI_CSP-Labeled_PBMCs_1K_fastqs/SC3_v3_NextGem_SI_CSP-Labeled_PBMCs_1K_gex_fastqs/SC3_v3_NextGem_SI_CSP-Labeled_PBMCs_1K_gex_S1_L004_R2_001.fastq.gz</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>When the <code>--h5ad</code> argument is used, <code>kb count</code> generates a H5AD-formatted Anndata matrix for downstream processing.</p>
 </section>
@@ -471,18 +447,11 @@ Written by Maya Caskey (based off older versions by Joe Rich, Kyung Hoi (Joseph)
 <p>For this tutorial we will be using the Python package <a href="https://scanpy.readthedocs.io/en/stable/"><strong>Scanpy</strong></a>.</p>
 <p>Scanpy is a scalable Python library for analyzing single-cell RNA sequencing (scRNA-seq) data, built around an efficient <a href="https://anndata.readthedocs.io/en/stable/"><strong>AnnData</strong></a> object that stores expression matrices and associated metadata. It provides a comprehensive toolkit for preprocessing, visualization, clustering, and differential expression, enabling end-to-end analysis of large single-cell datasets.</p>
 <p>Below we load the <em>cells x genes</em> matrix generated by kb-python as a H5AD-formatted object so that we can analyze our data with Scanpy.</p>
-<div id="cell-23" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="6374510d-60d0-473e-c479-398a6abf8c3c" data-execution_count="8">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import data</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>adata <span class="op">=</span> anndata.read_h5ad(<span class="st">'counts_unfiltered/adata.h5ad'</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>adata</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>AnnData object with n_obs × n_vars = 281262 × 39546</code></pre>
+<div id="cell-23" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="6374510d-60d0-473e-c479-398a6abf8c3c">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import dataadata = anndata.read_h5ad('sc_data/counts_unfiltered/adata.h5ad')adata</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
-<div id="cell-24" class="cell" data-execution_count="9">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the gene names and make them a column in the var dataframe</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"counts_unfiltered/cells_x_genes.genes.names.txt"</span>, <span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  adata.var[<span class="st">'gene_names'</span>] <span class="op">=</span> [l.strip() <span class="cf">for</span> l <span class="kw">in</span> <span class="bu">file</span>.readlines()]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="cell-24" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the gene names and make them a column in the var dataframewith open("sc_data/counts_unfiltered/cells_x_genes.genes.names.txt", 'r') as file:  adata.var['gene_names'] = [l.strip() for l in file.readlines()]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
@@ -492,23 +461,23 @@ Written by Maya Caskey (based off older versions by Joe Rich, Kyung Hoi (Joseph)
 <h3 class="anchored" data-anchor-id="test-for-library-saturation">Test for Library Saturation</h3>
 <p>Below is a <strong>Gene vs.&nbsp;UMI plot</strong>, in which, for each cell, we visualize how many genes we detected. The purpose of this plot is to see if we have “saturated” our sequencing library and sampled a representative number of mRNA molecules for each cell. If this is the case, the curve should plateau as we sequence more UMIs.</p>
 <div id="cell-28" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;,&quot;height&quot;:625}}" data-outputid="2304f482-ed5e-4eeb-ebdc-7ea6b46a396a" data-execution_count="10">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a plot showing genes detected as a function of UMI counts.</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">7</span>))</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.asarray(adata.X.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>))[:,<span class="dv">0</span>]</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.asarray(np.<span class="bu">sum</span>(adata.X<span class="op">&gt;</span><span class="dv">0</span>, axis<span class="op">=</span><span class="dv">1</span>))[:,<span class="dv">0</span>]</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>ax.scatter(x, y, color<span class="op">=</span><span class="st">"green"</span>, alpha<span class="op">=</span><span class="fl">0.25</span>)</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"UMI Counts"</span>)</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Genes Detected"</span>)</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>ax.set_xscale(<span class="st">'log'</span>)</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>ax.set_yscale(<span class="st">'log'</span>, nonpositive<span class="op">=</span><span class="st">'clip'</span>)</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>ax.set_xlim((<span class="fl">0.5</span>, <span class="dv">4500</span>))</span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>ax.set_ylim((<span class="fl">0.5</span>,<span class="dv">2000</span>))</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a plot showing genes detected as a function of UMI counts.</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">7</span>))</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.asarray(adata.X.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>))[:,<span class="dv">0</span>]</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.asarray(np.<span class="bu">sum</span>(adata.X<span class="op">&gt;</span><span class="dv">0</span>, axis<span class="op">=</span><span class="dv">1</span>))[:,<span class="dv">0</span>]</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>ax.scatter(x, y, color<span class="op">=</span><span class="st">"green"</span>, alpha<span class="op">=</span><span class="fl">0.25</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"UMI Counts"</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Genes Detected"</span>)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>ax.set_xscale(<span class="st">'log'</span>)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>ax.set_yscale(<span class="st">'log'</span>, nonpositive<span class="op">=</span><span class="st">'clip'</span>)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>ax.set_xlim((<span class="fl">0.5</span>, <span class="dv">4500</span>))</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>ax.set_ylim((<span class="fl">0.5</span>,<span class="dv">2000</span>))</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -526,26 +495,26 @@ Written by Maya Caskey (based off older versions by Joe Rich, Kyung Hoi (Joseph)
 <p>In this plot, barcodes are ranked by their total number of <strong>UMI counts</strong>. The y-axis shows the ranked barcodes, while the x-axis shows the number of UMIs associated with each barcode (typically on a log scale). A sharp transition — the <strong>“knee”</strong> of the curve — separates barcodes with high UMI counts (likely real cells) from those with very low counts (likely background).</p>
 <p>In droplet-based platforms such as <strong>10x Genomics</strong>, low-count barcodes often correspond to <strong>empty droplets containing ambient RNA</strong>. In other single-cell methods, such as <strong>combinatorial indexing approaches like Split-seq</strong>, low-count barcodes may arise from incomplete barcoding or background capture. In both cases, the knee plot provides a useful heuristic for identifying barcodes that likely correspond to real cells.</p>
 <div id="cell-31" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;,&quot;height&quot;:625}}" data-outputid="938d1a5d-0f04-4009-f83e-0a5471123d7f" data-execution_count="11">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title Threshold Cells According to Knee Plot { run: "auto", vertical-output: true }</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>cutoff <span class="op">=</span> <span class="dv">400</span>  <span class="co">#@param {type:"integer"}</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>knee <span class="op">=</span> np.sort((np.array(adata.X.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>))).flatten())[::<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>cell_set <span class="op">=</span> np.arange(<span class="bu">len</span>(knee))</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>num_cells <span class="op">=</span> cell_set[knee <span class="op">&gt;</span> cutoff][::<span class="op">-</span><span class="dv">1</span>][<span class="dv">0</span>]</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">7</span>))</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>ax.loglog(knee, cell_set, linewidth<span class="op">=</span><span class="dv">5</span>, color<span class="op">=</span><span class="st">"g"</span>)</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>ax.axvline(x<span class="op">=</span>cutoff, linewidth<span class="op">=</span><span class="dv">3</span>, color<span class="op">=</span><span class="st">"k"</span>)</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>ax.axhline(y<span class="op">=</span>num_cells, linewidth<span class="op">=</span><span class="dv">3</span>, color<span class="op">=</span><span class="st">"k"</span>)</span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"UMI Counts"</span>)</span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Set of Barcodes"</span>)</span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, which<span class="op">=</span><span class="st">"both"</span>)</span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title Threshold Cells According to Knee Plot { run: "auto", vertical-output: true }</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>cutoff <span class="op">=</span> <span class="dv">400</span>  <span class="co">#@param {type:"integer"}</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>knee <span class="op">=</span> np.sort((np.array(adata.X.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>))).flatten())[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>cell_set <span class="op">=</span> np.arange(<span class="bu">len</span>(knee))</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>num_cells <span class="op">=</span> cell_set[knee <span class="op">&gt;</span> cutoff][::<span class="op">-</span><span class="dv">1</span>][<span class="dv">0</span>]</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">7</span>))</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>ax.loglog(knee, cell_set, linewidth<span class="op">=</span><span class="dv">5</span>, color<span class="op">=</span><span class="st">"g"</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>ax.axvline(x<span class="op">=</span>cutoff, linewidth<span class="op">=</span><span class="dv">3</span>, color<span class="op">=</span><span class="st">"k"</span>)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>ax.axhline(y<span class="op">=</span>num_cells, linewidth<span class="op">=</span><span class="dv">3</span>, color<span class="op">=</span><span class="st">"k"</span>)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"UMI Counts"</span>)</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Set of Barcodes"</span>)</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, which<span class="op">=</span><span class="st">"both"</span>)</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -555,7 +524,7 @@ Written by Maya Caskey (based off older versions by Joe Rich, Kyung Hoi (Joseph)
 </div>
 </div>
 <div id="cell-32" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="0cf3cf6c-975d-4c81-8d6f-b6f6dfa3cfd0" data-execution_count="12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>num_cells<span class="sc">:,.0f}</span><span class="ss"> cells passed the </span><span class="sc">{</span>cutoff<span class="sc">}</span><span class="ss"> UMI threshold"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>num_cells<span class="sc">:,.0f}</span><span class="ss"> cells passed the </span><span class="sc">{</span>cutoff<span class="sc">}</span><span class="ss"> UMI threshold"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1,212 cells passed the 400 UMI threshold</code></pre>
 </div>
@@ -568,9 +537,9 @@ Written by Maya Caskey (based off older versions by Joe Rich, Kyung Hoi (Joseph)
 <h3 class="anchored" data-anchor-id="filter-empty-droplets-according-to-the-knee-plot">Filter empty droplets (According to the Knee Plot)</h3>
 <p>Ideally, your data will contain no empty droplets that can be mistaken for real cells. We use our results from the knee plot here to filter them out. In addition, we filter out low-quality cells that have fewer than 200 detected genes.</p>
 <div id="cell-36" class="cell" data-execution_count="13">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter the cells according to the threshold determined from the knee plot</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>sc.pp.filter_cells(adata, min_genes<span class="op">=</span><span class="dv">200</span>)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>sc.pp.filter_cells(adata, min_counts<span class="op">=</span>knee[num_cells])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter the cells according to the threshold determined from the knee plot</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>sc.pp.filter_cells(adata, min_genes<span class="op">=</span><span class="dv">200</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>sc.pp.filter_cells(adata, min_counts<span class="op">=</span>knee[num_cells])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -606,32 +575,32 @@ Note
 </div>
 </div>
 <div id="cell-41" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="12bfbb7e-9df9-4a62-ff67-26aa90b5c7ec" data-execution_count="14">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sc.pp.scrublet(adata, expected_doublet_rate<span class="op">=</span><span class="fl">0.008</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>sc.pp.scrublet(adata, expected_doublet_rate<span class="op">=</span><span class="fl">0.008</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The expected doublet rate depends upon your assay and the number of cells targeted. Refer to the documentation for your specific technology to get this number. We got the expected doublet rate of 0.008 for 1,000 cells for 10x Chromium NextGem v3.1 <a href="https://kb.10xgenomics.com/s/article/360054599512-What-is-the-cell-multiplet-rate-when-using-the-3-CellPlex-Kit-for-Cell-Multiplexing">here</a>.</p>
 <div id="cell-43" class="cell" data-execution_count="15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>adata <span class="op">=</span> adata[adata.obs[<span class="st">'predicted_doublet'</span>] <span class="op">==</span> <span class="va">False</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>adata <span class="op">=</span> adata[adata.obs[<span class="st">'predicted_doublet'</span>] <span class="op">==</span> <span class="va">False</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="filtering-cells-by-mitochondrial-content" class="level3">
 <h3 class="anchored" data-anchor-id="filtering-cells-by-mitochondrial-content">Filtering Cells by Mitochondrial Content</h3>
 <p>A healthy, intact cell should have relatively little mitochondrial RNA in the cytoplasm. As such, a high percentage of mitochondrial RNA in the cytosol indicates cellular damage. We will identify the number of mitochondrial transcripts in each cell and remove cells with a certain percentage of mitochondrial content.</p>
 <div id="cell-46" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="801f5ec5-c704-4a90-8812-e4fd5bc553f4" data-execution_count="16">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Identify mitochondrial genes based on human-specific mtRNA prefix</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>adata.var[<span class="st">'is_mito'</span>] <span class="op">=</span> adata.var[<span class="st">'gene_names'</span>].<span class="bu">str</span>.startswith(<span class="st">"MT-"</span>)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>mito_counts <span class="op">=</span> adata[:, adata.var[<span class="st">'is_mito'</span>]].X.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate total counts per cell</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>total_counts <span class="op">=</span> adata.X.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate percent mitochondrial gene expression per cell</span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>adata.obs[<span class="st">'percent_mito'</span>] <span class="op">=</span> np.array(mito_counts <span class="op">/</span> total_counts <span class="op">*</span> <span class="dv">100</span>).flatten()</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>adata.obs[<span class="st">'n_counts'</span>] <span class="op">=</span> adata.X.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>).A1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Identify mitochondrial genes based on human-specific mtRNA prefix</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>adata.var[<span class="st">'is_mito'</span>] <span class="op">=</span> adata.var[<span class="st">'gene_names'</span>].<span class="bu">str</span>.startswith(<span class="st">"MT-"</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>mito_counts <span class="op">=</span> adata[:, adata.var[<span class="st">'is_mito'</span>]].X.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate total counts per cell</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>total_counts <span class="op">=</span> adata.X.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate percent mitochondrial gene expression per cell</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>adata.obs[<span class="st">'percent_mito'</span>] <span class="op">=</span> np.array(mito_counts <span class="op">/</span> total_counts <span class="op">*</span> <span class="dv">100</span>).flatten()</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>adata.obs[<span class="st">'n_counts'</span>] <span class="op">=</span> adata.X.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>).A1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-47" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;,&quot;height&quot;:491}}" data-outputid="3928cefc-ffff-463b-8922-bbfba6f0a9d2" data-execution_count="17">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>sc.pl.scatter(adata, x<span class="op">=</span><span class="st">'n_counts'</span>, y<span class="op">=</span><span class="st">'percent_mito'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sc.pl.scatter(adata, x<span class="op">=</span><span class="st">'n_counts'</span>, y<span class="op">=</span><span class="st">'percent_mito'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -642,14 +611,14 @@ Note
 </div>
 <p>We see above that the highest density of cells appear to have less than 30% mitochondrial content, so we will set our threshold to 30%</p>
 <div id="cell-49" class="cell" data-execution_count="18">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>adata <span class="op">=</span> adata[adata.obs.percent_mito <span class="op">&lt;</span> <span class="dv">30</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>adata <span class="op">=</span> adata[adata.obs.percent_mito <span class="op">&lt;</span> <span class="dv">30</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="filter-out-genes-that-are-not-present-in-any-cells" class="level3">
 <h3 class="anchored" data-anchor-id="filter-out-genes-that-are-not-present-in-any-cells">Filter out genes that are not present in any cells</h3>
 <p>In general, we also want to get rid of genes with a low cell count to simplify our data. This is not strictly necessary, but it can make downstream analyses more efficient and easier to interpret. We will filter out genes that are not detected in at least 3 cells.</p>
 <div id="cell-52" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="d716827c-a4a6-4a8a-c42a-2f188c38783e" data-execution_count="19">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>sc.pp.filter_genes(adata, min_cells<span class="op">=</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>sc.pp.filter_genes(adata, min_cells<span class="op">=</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -669,7 +638,7 @@ Important
 <h3 class="anchored" data-anchor-id="visualizing-count-distributions">Visualizing count distributions</h3>
 <p>Examination of the gene count and UMI count distributions is useful QC to evaluate the quality of the library and how deeply it was sequenced.</p>
 <div id="cell-56" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;,&quot;height&quot;:500}}" data-outputid="f47223c0-b6a4-48be-c1a1-25b026b0ea44" data-execution_count="20">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>sc.pl.violin(adata, [<span class="st">'n_genes'</span>, <span class="st">'n_counts'</span>, <span class="st">'percent_mito'</span>], jitter<span class="op">=</span><span class="fl">0.4</span>, multi_panel<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>sc.pl.violin(adata, [<span class="st">'n_genes'</span>, <span class="st">'n_counts'</span>, <span class="st">'percent_mito'</span>], jitter<span class="op">=</span><span class="fl">0.4</span>, multi_panel<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -699,8 +668,8 @@ Note
 </div>
 </div>
 <div id="cell-59" class="cell" data-execution_count="21">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>sc.pp.normalize_total(adata, target_sum<span class="op">=</span><span class="fl">1e6</span>)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>sc.pp.log1p(adata)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>sc.pp.normalize_total(adata, target_sum<span class="op">=</span><span class="fl">1e6</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>sc.pp.log1p(adata)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="highly-variable-gene-hvg-selection" class="level3">
 <h3 class="anchored" data-anchor-id="highly-variable-gene-hvg-selection">Highly Variable Gene (HVG) Selection</h3>
@@ -720,8 +689,8 @@ Note
 </div>
 </div>
 <div id="cell-62" class="cell" data-execution_count="22">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>sc.pp.highly_variable_genes(adata, min_mean<span class="op">=</span><span class="fl">0.01</span>, max_mean<span class="op">=</span><span class="dv">8</span>, min_disp<span class="op">=</span><span class="dv">1</span>, n_bins<span class="op">=</span><span class="dv">20</span>, flavor<span class="op">=</span><span class="st">"seurat"</span>)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>sc.pl.highly_variable_genes(adata)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>sc.pp.highly_variable_genes(adata, min_mean<span class="op">=</span><span class="fl">0.01</span>, max_mean<span class="op">=</span><span class="dv">8</span>, min_disp<span class="op">=</span><span class="dv">1</span>, n_bins<span class="op">=</span><span class="dv">20</span>, flavor<span class="op">=</span><span class="st">"seurat"</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>sc.pl.highly_variable_genes(adata)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -749,20 +718,20 @@ Note
 </div>
 </div>
 <div id="cell-65" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="75be913b-5146-4204-86bf-29315c63184b" data-execution_count="23">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>sc.pp.pca(adata, mask_var<span class="op">=</span><span class="st">"highly_variable"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>sc.pp.pca(adata, mask_var<span class="op">=</span><span class="st">"highly_variable"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-66" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="11f2503c-3daf-404a-b2eb-9d8fc13bd9ce" data-execution_count="24">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cluster the cells using Leiden clustering</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>sc.pp.neighbors(adata, n_neighbors<span class="op">=</span><span class="dv">30</span>, n_pcs<span class="op">=</span><span class="dv">10</span>, knn<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>sc.tl.leiden(adata, resolution <span class="op">=</span> <span class="fl">1.0</span>, flavor<span class="op">=</span><span class="st">'igraph'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cluster the cells using Leiden clustering</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>sc.pp.neighbors(adata, n_neighbors<span class="op">=</span><span class="dv">30</span>, n_pcs<span class="op">=</span><span class="dv">10</span>, knn<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>sc.tl.leiden(adata, resolution <span class="op">=</span> <span class="fl">1.0</span>, flavor<span class="op">=</span><span class="st">'igraph'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>It is useful to revisit the PCA projection with points colored by cluster. Previously we computed the PCA projection directly; here we use a function in Scanpy which does the same.</p>
 <section id="visualization-with-pca" class="level3">
 <h3 class="anchored" data-anchor-id="visualization-with-pca">Visualization with PCA</h3>
 <div id="cell-69" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;,&quot;height&quot;:621}}" data-outputid="b4b31b01-8b7c-4b28-b71b-3c781d86301d" data-execution_count="25">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform PCA and plot the projection to the first two dimensions, with points colored according to the Leiden clusters.</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">7</span>))</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>sc.pl.pca(adata, color<span class="op">=</span><span class="st">'leiden'</span>, ax<span class="op">=</span>ax)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform PCA and plot the projection to the first two dimensions, with points colored according to the Leiden clusters.</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">7</span>))</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>sc.pl.pca(adata, color<span class="op">=</span><span class="st">'leiden'</span>, ax<span class="op">=</span>ax)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -780,11 +749,11 @@ Note
 <section id="t-sne" class="level4">
 <h4 class="anchored" data-anchor-id="t-sne">t-SNE</h4>
 <div id="cell-72" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;,&quot;height&quot;:621}}" data-outputid="39fc34a1-85d5-4ac9-a847-8c1f071f664b" data-execution_count="26">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize cells with t-SNE. The n_pcs parameter sets the number of principal components to project to prior to</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co"># performing t-SNE</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>sc.tl.tsne(adata, n_pcs<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">7</span>))</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>sc.pl.tsne(adata, color<span class="op">=</span><span class="st">'leiden'</span>, ax<span class="op">=</span>ax)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize cells with t-SNE. The n_pcs parameter sets the number of principal components to project to prior to</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># performing t-SNE</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>sc.tl.tsne(adata, n_pcs<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">7</span>))</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>sc.pl.tsne(adata, color<span class="op">=</span><span class="st">'leiden'</span>, ax<span class="op">=</span>ax)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -797,10 +766,10 @@ Note
 <section id="umap" class="level4">
 <h4 class="anchored" data-anchor-id="umap">UMAP</h4>
 <div id="cell-74" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;,&quot;height&quot;:657}}" data-outputid="ba593484-9fe1-44ca-a3d2-a426536b78e5" data-execution_count="27">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>sc.tl.umap(adata)</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">7</span>))</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>sc.pl.umap(adata, color<span class="op">=</span><span class="st">'leiden'</span>, ax<span class="op">=</span>ax)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>sc.tl.umap(adata)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">7</span>))</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>sc.pl.umap(adata, color<span class="op">=</span><span class="st">'leiden'</span>, ax<span class="op">=</span>ax)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -837,11 +806,11 @@ Note
 </div>
 </div>
 <div id="cell-79" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="1206dc4b-7a7f-4ceb-f9c3-43aa686c8f64" data-execution_count="28">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>sc.tl.rank_genes_groups(adata, gene_symbols<span class="op">=</span><span class="st">'gene_names'</span>, groupby<span class="op">=</span><span class="st">'leiden'</span>, method<span class="op">=</span><span class="st">'wilcoxon'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>sc.tl.rank_genes_groups(adata, gene_symbols<span class="op">=</span><span class="st">'gene_names'</span>, groupby<span class="op">=</span><span class="st">'leiden'</span>, method<span class="op">=</span><span class="st">'wilcoxon'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The below plot shows the 10 most highly expressed genes in each cluster (compared to the other clusters) according to the Wilcoxon z-score. We usually inspect these genes to determine if they correspond to known marker genes for specific cell types, which can help us annotate our clusters with putative cell identities.</p>
 <div id="cell-81" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;,&quot;height&quot;:1000}}" data-outputid="734e9fea-8282-4e27-9070-2293f7cb3004" data-execution_count="29">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>sc.pl.rank_genes_groups(adata, n_genes<span class="op">=</span><span class="dv">10</span>, gene_symbols<span class="op">=</span><span class="st">'gene_names'</span>, groupby<span class="op">=</span><span class="st">'leiden'</span>, method<span class="op">=</span><span class="st">'wilcoxon'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>sc.pl.rank_genes_groups(adata, n_genes<span class="op">=</span><span class="dv">10</span>, gene_symbols<span class="op">=</span><span class="st">'gene_names'</span>, groupby<span class="op">=</span><span class="st">'leiden'</span>, method<span class="op">=</span><span class="st">'wilcoxon'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -852,10 +821,10 @@ Note
 </div>
 <p>Here we only display the top ten representative genes for each cluster. We find that differential expression in many of these clusters is driven by differential expression of highly but ubiquitously expressed genes (e.g.&nbsp;ribosomal protein-coding genes (RPS/RPL) and MALAT1, an abundant nuclear transcript). The relative expression of these genes is cell-type and cell-state specific but they make for unclear markers; we will remove them and perform the rank-sum test again.</p>
 <div id="cell-83" class="cell" data-execution_count="30">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>nuisance_genes <span class="op">=</span> [<span class="st">'RPS'</span>, <span class="st">'RPL'</span>, <span class="st">'MALAT1'</span>, <span class="st">"MT-"</span>]</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>adata <span class="op">=</span> adata[:, <span class="op">~</span>adata.var[<span class="st">'gene_names'</span>].<span class="bu">str</span>.startswith(<span class="bu">tuple</span>(nuisance_genes))]</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>sc.tl.rank_genes_groups(adata, gene_symbols<span class="op">=</span><span class="st">'gene_names'</span>, groupby<span class="op">=</span><span class="st">'leiden'</span>, method<span class="op">=</span><span class="st">'wilcoxon'</span>)</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>sc.pl.rank_genes_groups(adata, n_genes<span class="op">=</span><span class="dv">15</span>, gene_symbols<span class="op">=</span><span class="st">'gene_names'</span>, groupby<span class="op">=</span><span class="st">'leiden'</span>, method<span class="op">=</span><span class="st">'wilcoxon'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>nuisance_genes <span class="op">=</span> [<span class="st">'RPS'</span>, <span class="st">'RPL'</span>, <span class="st">'MALAT1'</span>, <span class="st">"MT-"</span>]</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>adata <span class="op">=</span> adata[:, <span class="op">~</span>adata.var[<span class="st">'gene_names'</span>].<span class="bu">str</span>.startswith(<span class="bu">tuple</span>(nuisance_genes))]</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>sc.tl.rank_genes_groups(adata, gene_symbols<span class="op">=</span><span class="st">'gene_names'</span>, groupby<span class="op">=</span><span class="st">'leiden'</span>, method<span class="op">=</span><span class="st">'wilcoxon'</span>)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>sc.pl.rank_genes_groups(adata, n_genes<span class="op">=</span><span class="dv">15</span>, gene_symbols<span class="op">=</span><span class="st">'gene_names'</span>, groupby<span class="op">=</span><span class="st">'leiden'</span>, method<span class="op">=</span><span class="st">'wilcoxon'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -866,14 +835,14 @@ Note
 </div>
 <p>Below we visualize the prevalence of these genes within a cluster and the mean cluster expression with a dot plot. We can see that most significant genes are expressed across several clusters. From the dot plot, we can group clusters into four broad cell-types: myeloid cells identified by CST3 (clusters 3 and 6), B cells identified by MS4A1 (cluster 1), T-cells identified by CD3G (clusters 2, 4, 5, 0, and 7), and cytotoxic lymphocytes identified by NKG7 (clusters 5 and 8). Finding more descriptive cell-types requires a more detailed inspection of the significant genes that we’ll skip over here for simplicity. These plots are also useful for getting an idea of which genes make the best markers for this particular dataset and for identifying the presence of rare, unkown, or unexpected cell-types.</p>
 <div id="cell-85" class="cell" data-execution_count="31">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>sc.tl.dendrogram(</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    adata,</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    groupby<span class="op">=</span><span class="st">"leiden"</span>,</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    key_added<span class="op">=</span><span class="st">"dea_leiden"</span></span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>sc.pl.rank_genes_groups_dotplot(</span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    adata, groupby<span class="op">=</span><span class="st">"leiden"</span>, gene_symbols<span class="op">=</span><span class="st">'gene_names'</span>, standard_scale<span class="op">=</span><span class="st">"var"</span>, n_genes<span class="op">=</span><span class="dv">5</span>, dendrogram<span class="op">=</span><span class="st">"dea_leiden"</span></span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>sc.tl.dendrogram(</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    adata,</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    groupby<span class="op">=</span><span class="st">"leiden"</span>,</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    key_added<span class="op">=</span><span class="st">"dea_leiden"</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>sc.pl.rank_genes_groups_dotplot(</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    adata, groupby<span class="op">=</span><span class="st">"leiden"</span>, gene_symbols<span class="op">=</span><span class="st">'gene_names'</span>, standard_scale<span class="op">=</span><span class="st">"var"</span>, n_genes<span class="op">=</span><span class="dv">5</span>, dendrogram<span class="op">=</span><span class="st">"dea_leiden"</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -887,20 +856,20 @@ Note
 <h3 class="anchored" data-anchor-id="annotation-by-marker-gene-expression">Annotation by Marker Gene Expression</h3>
 <p>If a tissue is well-studied, it is often easier to begin from known cell-type markers. Below is a minimal set of PBMC markers that we will use to differentiate between different cell-types. We will then plot a dot plot similar to the one above to see if we can identify the cell type of specific clusters.</p>
 <div id="cell-88" class="cell" data-execution_count="32">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Minimal PBMC markers</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>marker_genes <span class="op">=</span> {</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CD14+ Mono"</span>: [<span class="st">"FCN1"</span>, <span class="st">"CD14"</span>, <span class="st">"LYZ"</span>],</span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CD16+ Mono"</span>: [<span class="st">"TCF7L2"</span>, <span class="st">"FCGR3A"</span>, <span class="st">"LYN"</span>, <span class="st">"MS4A7"</span>],</span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"DC"</span>: [<span class="st">"FCER1A"</span>, <span class="st">"CST3"</span>],</span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"NK"</span>: [<span class="st">"GNLY"</span>, <span class="st">"NKG7"</span>, <span class="st">"CD247"</span>, <span class="st">"FCER1G"</span>, <span class="st">"TYROBP"</span>, <span class="st">"KLRG1"</span>, <span class="st">"FCGR3A"</span>],</span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"B cells"</span>: [<span class="st">"MS4A1"</span>, <span class="st">"IGHD"</span>, <span class="st">"IGHM"</span>],</span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CD4+ T"</span>: [<span class="st">"CD4"</span>, <span class="st">"IL7R"</span>, <span class="st">"TRBC2"</span>],</span>
-<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CD8+ T"</span>: [<span class="st">"CD8A"</span>, <span class="st">"CD8B"</span>, <span class="st">"GZMK"</span>, <span class="st">"GZMA"</span>, <span class="st">"GZMB"</span>, <span class="st">"CCL5"</span>],</span>
-<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"pan T"</span>: [<span class="st">"CD3D"</span>, <span class="st">"CD3E"</span>, <span class="st">"CD3G"</span>]</span>
-<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Minimal PBMC markers</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>marker_genes <span class="op">=</span> {</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CD14+ Mono"</span>: [<span class="st">"FCN1"</span>, <span class="st">"CD14"</span>, <span class="st">"LYZ"</span>],</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CD16+ Mono"</span>: [<span class="st">"TCF7L2"</span>, <span class="st">"FCGR3A"</span>, <span class="st">"LYN"</span>, <span class="st">"MS4A7"</span>],</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"DC"</span>: [<span class="st">"FCER1A"</span>, <span class="st">"CST3"</span>],</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"NK"</span>: [<span class="st">"GNLY"</span>, <span class="st">"NKG7"</span>, <span class="st">"CD247"</span>, <span class="st">"FCER1G"</span>, <span class="st">"TYROBP"</span>, <span class="st">"KLRG1"</span>, <span class="st">"FCGR3A"</span>],</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"B cells"</span>: [<span class="st">"MS4A1"</span>, <span class="st">"IGHD"</span>, <span class="st">"IGHM"</span>],</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CD4+ T"</span>: [<span class="st">"CD4"</span>, <span class="st">"IL7R"</span>, <span class="st">"TRBC2"</span>],</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CD8+ T"</span>: [<span class="st">"CD8A"</span>, <span class="st">"CD8B"</span>, <span class="st">"GZMK"</span>, <span class="st">"GZMA"</span>, <span class="st">"GZMB"</span>, <span class="st">"CCL5"</span>],</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"pan T"</span>: [<span class="st">"CD3D"</span>, <span class="st">"CD3E"</span>, <span class="st">"CD3G"</span>]</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-89" class="cell" data-execution_count="33">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>sc.pl.dotplot(adata, marker_genes, gene_symbols<span class="op">=</span><span class="st">'gene_names'</span>, groupby<span class="op">=</span><span class="st">"leiden"</span>, standard_scale<span class="op">=</span><span class="st">"var"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>sc.pl.dotplot(adata, marker_genes, gene_symbols<span class="op">=</span><span class="st">'gene_names'</span>, groupby<span class="op">=</span><span class="st">"leiden"</span>, standard_scale<span class="op">=</span><span class="st">"var"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -911,24 +880,24 @@ Note
 </div>
 <p>From the dotplot, we can easily differentiate the broad PBMC cell types: monocytes (primarily CD14+), natural killer cells, B cells, and T cells. The T cells we can broadly differentiate into CD4+ and CD8+ cells. From the wilcoxon rank-sum test above, we know CD8+ T clusters represents cytotoxic T-cells (identified by GZMK and NKG7) while the other is composed of GZMK-CD8+ naive/central memory T-cells. There are two broad types of monocytes (CD14+ and CD16+). However, the fraction of CD16+ monocytes appears small relative to CD14+ monocytes and cannot be resolved with such a small dataset.</p>
 <div id="cell-91" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>annotation <span class="op">=</span> {</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"0"</span>: <span class="st">"CD4+ T"</span>,</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"1"</span>: <span class="st">"B Cells"</span>,</span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"2"</span>: <span class="st">"GZMK-CD8+ Naive/CM  T"</span>,</span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"3"</span>: <span class="st">"Monocytes"</span>,</span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"4"</span>: <span class="st">"CD4+ T"</span>,</span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"5"</span>: <span class="st">"CD8+ T"</span>,</span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"6"</span>: <span class="st">"Monocytes"</span>,</span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"7"</span>: <span class="st">"CD4+ T"</span>,</span>
-<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"8"</span>: <span class="st">"Natural Killer Cells"</span>,</span>
-<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>annotation <span class="op">=</span> {</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"0"</span>: <span class="st">"CD4+ T"</span>,</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"1"</span>: <span class="st">"B Cells"</span>,</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"2"</span>: <span class="st">"GZMK-CD8+ Naive/CM  T"</span>,</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"3"</span>: <span class="st">"Monocytes"</span>,</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"4"</span>: <span class="st">"CD4+ T"</span>,</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"5"</span>: <span class="st">"CD8+ T"</span>,</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"6"</span>: <span class="st">"Monocytes"</span>,</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"7"</span>: <span class="st">"CD4+ T"</span>,</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"8"</span>: <span class="st">"Natural Killer Cells"</span>,</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We can then visualize the annotated clusters on the PCA projection.</p>
 <div id="cell-93" class="cell" data-execution_count="37">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>adata.obs[<span class="st">'cell_type'</span>] <span class="op">=</span> adata.obs[<span class="st">'leiden'</span>].<span class="bu">map</span>(annotation)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>adata.obs[<span class="st">'cell_type'</span>] <span class="op">=</span> adata.obs[<span class="st">'leiden'</span>].<span class="bu">map</span>(annotation)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-94" class="cell" data-execution_count="38">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>sc.pl.pca(adata, color<span class="op">=</span><span class="st">'cell_type'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>sc.pl.pca(adata, color<span class="op">=</span><span class="st">'cell_type'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">

@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/notebooks/sc_workflow.html</loc>
-    <lastmod>2026-10-01T22:04:54.250Z</lastmod>
+    <lastmod>2026-10-01T22:51:00.189Z</lastmod>
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/notebooks/bulk_workflow.html</loc>
-    <lastmod>2026-08-26T23:32:13.420Z</lastmod>
+    <lastmod>2026-10-01T22:47:05.515Z</lastmod>
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/pages/packages/scanpy.html</loc>
-    <lastmod>2026-08-26T23:32:37.351Z</lastmod>
+    <lastmod>2026-10-01T22:47:08.687Z</lastmod>
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/pages/seqspec/seqspec.html</loc>
-    <lastmod>2026-08-26T23:34:46.708Z</lastmod>
+    <lastmod>2026-10-01T22:47:08.689Z</lastmod>
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/pages/seqspec/technologies/bulk.html</loc>
@@ -22,11 +22,11 @@
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/pages/seqspec/technologies/Parse/parse_v2_dual.html</loc>
-    <lastmod>2026-08-26T23:37:31.941Z</lastmod>
+    <lastmod>2026-10-01T22:47:08.690Z</lastmod>
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/pages/seqspec/technologies/10x/10x_v4.html</loc>
-    <lastmod>2026-08-26T23:35:32.215Z</lastmod>
+    <lastmod>2026-10-01T22:47:08.689Z</lastmod>
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/pages/installation/python_packages.html</loc>
@@ -42,11 +42,11 @@
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/pages/resources/git.html</loc>
-    <lastmod>2026-08-26T23:34:22.637Z</lastmod>
+    <lastmod>2026-10-01T22:47:08.688Z</lastmod>
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/pages/resources/hpc/HPC.html</loc>
-    <lastmod>2026-08-26T23:34:19.445Z</lastmod>
+    <lastmod>2026-10-01T22:47:08.688Z</lastmod>
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/pages/resources/cmd_line/cmd_line.html</loc>
@@ -54,11 +54,11 @@
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/pages/design.html</loc>
-    <lastmod>2026-08-26T23:34:42.328Z</lastmod>
+    <lastmod>2026-10-01T22:47:08.686Z</lastmod>
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/pages/technologies/10x.html</loc>
-    <lastmod>2026-08-26T23:33:39.110Z</lastmod>
+    <lastmod>2026-10-01T22:47:08.691Z</lastmod>
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/index.html</loc>
@@ -66,23 +66,23 @@
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/pages/technologies/parse.html</loc>
-    <lastmod>2026-08-26T23:33:32.727Z</lastmod>
+    <lastmod>2026-10-01T22:47:08.691Z</lastmod>
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/pages/technologies/bulk.html</loc>
-    <lastmod>2026-08-26T23:33:45.788Z</lastmod>
+    <lastmod>2026-10-01T22:47:08.691Z</lastmod>
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/pages/resources/cmd_line/bash.html</loc>
-    <lastmod>2026-08-26T23:34:08.545Z</lastmod>
+    <lastmod>2026-10-01T22:47:08.687Z</lastmod>
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/pages/resources/cmd_line/windows.html</loc>
-    <lastmod>2026-08-26T23:34:09.637Z</lastmod>
+    <lastmod>2026-10-01T22:47:08.688Z</lastmod>
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/pages/resources/hpc/slurm_example.html</loc>
-    <lastmod>2026-08-26T23:34:34.439Z</lastmod>
+    <lastmod>2026-10-01T22:47:08.689Z</lastmod>
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/pages/resources/envs/renv.html</loc>
@@ -90,23 +90,23 @@
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/pages/resources/envs/conda.html</loc>
-    <lastmod>2026-08-26T23:34:11.250Z</lastmod>
+    <lastmod>2026-10-01T22:47:08.688Z</lastmod>
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/pages/installation/fastqc_install.html</loc>
-    <lastmod>2026-08-26T23:32:24.280Z</lastmod>
+    <lastmod>2026-10-01T22:47:08.687Z</lastmod>
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/pages/seqspec/technologies/10x/10x_v3.html</loc>
-    <lastmod>2026-08-26T23:35:29.029Z</lastmod>
+    <lastmod>2026-10-01T22:47:08.689Z</lastmod>
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/pages/seqspec/technologies/Parse/parse_v2_single.html</loc>
-    <lastmod>2026-08-26T23:37:46.085Z</lastmod>
+    <lastmod>2026-10-01T22:47:08.690Z</lastmod>
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/pages/seqspec/technologies/Parse/parse_v3.html</loc>
-    <lastmod>2026-08-26T23:38:04.833Z</lastmod>
+    <lastmod>2026-10-01T22:47:08.690Z</lastmod>
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/pages/seqspec/seqspec_tutorials.html</loc>
@@ -118,7 +118,7 @@
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/pages/packages/kb_python.html</loc>
-    <lastmod>2026-08-26T23:32:36.329Z</lastmod>
+    <lastmod>2026-10-01T22:47:08.687Z</lastmod>
   </url>
   <url>
     <loc>https://caltech-bioinformatics-resource-center.github.io/Tutorials/notebooks/seqfish_workflow.html</loc>
