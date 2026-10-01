@@ -3,4 +3,6 @@
 .vscode**
 **.tar**
 **.fastq**
+**/.**
 .DS_Store
+src/notebooks/sc_data/
