@@ -1,0 +1,1947 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>sc_workflow_exercise_solution – CBRC Tutorials</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-1df33b310b25e824b5acc70bcebddb02.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-d6053df382244508c1004bc951ec3d33.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">CBRC Tutorials</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technologies" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Technologies</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-technologies">    
+        <li>
+    <a class="dropdown-item" href="../pages/technologies/10x.html">
+ <span class="dropdown-text">10x Genomics Chromium</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pages/technologies/parse.html">
+ <span class="dropdown-text">Parse Evercode WT</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pages/technologies/bulk.html">
+ <span class="dropdown-text">Bulk RNA-seq</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../notebooks/seqfish_workflow.html">
+ <span class="dropdown-text">seqFISH</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-seqspec" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">seqspec</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-seqspec">    
+        <li>
+    <a class="dropdown-item" href="../pages/seqspec/seqspec.html">
+ <span class="dropdown-text">What is seqspec?</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pages/seqspec/seqspec_tutorials.html">
+ <span class="dropdown-text">Tutorials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-workflows" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Workflows</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-workflows">    
+        <li>
+    <a class="dropdown-item" href="../notebooks/sc_workflow.html">
+ <span class="dropdown-text">An Example scRNA-seq Workflow</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../notebooks/seqfish_workflow.html">
+ <span class="dropdown-text">An Example Spatial Transcriptomics Workflow</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../notebooks/bulk_workflow.html">
+ <span class="dropdown-text">An Example Bulk RNA-seq Workflow</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-packages" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Packages</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-packages">    
+        <li>
+    <a class="dropdown-item" href="../pages/packages/fastqc.html">
+ <span class="dropdown-text">FastQC</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pages/packages/kb_python.html">
+ <span class="dropdown-text">kb-python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pages/packages/scanpy.html">
+ <span class="dropdown-text">Scanpy and Anndata</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="../pages/resources/hpc/HPC.html">
+ <span class="dropdown-text">Intro to Caltech HPC</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pages/resources/git.html">
+ <span class="dropdown-text">Intro to Git and GitHub</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pages/resources/envs/envs.html">
+ <span class="dropdown-text">Intro to Environment Management</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pages/resources/cmd_line/cmd_line.html">
+ <span class="dropdown-text">Intro to the Command Line</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-installation" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Installation</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-installation">    
+        <li>
+    <a class="dropdown-item" href="../pages/installation/python_packages.html">
+ <span class="dropdown-text">Installing Python Packages</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pages/installation/R_packages.html">
+ <span class="dropdown-text">Installing R Packages</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pages/installation/fastqc_install.html">
+ <span class="dropdown-text">Installing FastQC</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://caltech-bioinformatics-resource-center.github.io/"> 
+<span class="menu-text">CBRC</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#initial-set-up" id="toc-initial-set-up" class="nav-link active" data-scroll-target="#initial-set-up">Initial Set-Up</a>
+  <ul class="collapse">
+  <li><a href="#install-python-packages" id="toc-install-python-packages" class="nav-link" data-scroll-target="#install-python-packages">Install Python Packages</a></li>
+  <li><a href="#download-the-count-matrices" id="toc-download-the-count-matrices" class="nav-link" data-scroll-target="#download-the-count-matrices">Download the count matrices</a></li>
+  </ul></li>
+  <li><a href="#step-1-load-the-count-matrices" id="toc-step-1-load-the-count-matrices" class="nav-link" data-scroll-target="#step-1-load-the-count-matrices">Step 1: Load the Count Matrices</a></li>
+  <li><a href="#step-2-basic-quality-control-per-sample" id="toc-step-2-basic-quality-control-per-sample" class="nav-link" data-scroll-target="#step-2-basic-quality-control-per-sample">Step 2: Basic Quality Control (per sample)</a>
+  <ul class="collapse">
+  <li><a href="#test-for-library-saturation" id="toc-test-for-library-saturation" class="nav-link" data-scroll-target="#test-for-library-saturation">Test for Library Saturation</a></li>
+  <li><a href="#examine-the-knee-plot" id="toc-examine-the-knee-plot" class="nav-link" data-scroll-target="#examine-the-knee-plot">Examine the Knee Plot</a></li>
+  </ul></li>
+  <li><a href="#step-3-cell-and-gene-filtering" id="toc-step-3-cell-and-gene-filtering" class="nav-link" data-scroll-target="#step-3-cell-and-gene-filtering">Step 3: Cell and Gene Filtering</a>
+  <ul class="collapse">
+  <li><a href="#filter-low-quality-cells-per-sample" id="toc-filter-low-quality-cells-per-sample" class="nav-link" data-scroll-target="#filter-low-quality-cells-per-sample">Filter low-quality cells (per sample)</a></li>
+  <li><a href="#filter-multiplets-with-scrublet-per-sample" id="toc-filter-multiplets-with-scrublet-per-sample" class="nav-link" data-scroll-target="#filter-multiplets-with-scrublet-per-sample">Filter Multiplets with Scrublet (per sample)</a></li>
+  <li><a href="#filtering-cells-by-mitochondrial-content-per-sample" id="toc-filtering-cells-by-mitochondrial-content-per-sample" class="nav-link" data-scroll-target="#filtering-cells-by-mitochondrial-content-per-sample">Filtering Cells by Mitochondrial Content (per sample)</a></li>
+  <li><a href="#combine-the-samples" id="toc-combine-the-samples" class="nav-link" data-scroll-target="#combine-the-samples">Combine the samples</a></li>
+  <li><a href="#filter-out-genes-that-are-not-present-in-any-cells" id="toc-filter-out-genes-that-are-not-present-in-any-cells" class="nav-link" data-scroll-target="#filter-out-genes-that-are-not-present-in-any-cells">Filter out genes that are not present in any cells</a></li>
+  <li><a href="#visualizing-count-distributions" id="toc-visualizing-count-distributions" class="nav-link" data-scroll-target="#visualizing-count-distributions">Visualizing count distributions</a></li>
+  </ul></li>
+  <li><a href="#step-4-normalization-and-variance-stabilization" id="toc-step-4-normalization-and-variance-stabilization" class="nav-link" data-scroll-target="#step-4-normalization-and-variance-stabilization">Step 4: Normalization and Variance Stabilization</a>
+  <ul class="collapse">
+  <li><a href="#highly-variable-gene-hvg-selection" id="toc-highly-variable-gene-hvg-selection" class="nav-link" data-scroll-target="#highly-variable-gene-hvg-selection">Highly Variable Gene (HVG) Selection</a></li>
+  </ul></li>
+  <li><a href="#step-5-dimensionality-reduction-and-batch-correction" id="toc-step-5-dimensionality-reduction-and-batch-correction" class="nav-link" data-scroll-target="#step-5-dimensionality-reduction-and-batch-correction">Step 5: Dimensionality Reduction and Batch Correction</a>
+  <ul class="collapse">
+  <li><a href="#do-the-samples-cluster-together" id="toc-do-the-samples-cluster-together" class="nav-link" data-scroll-target="#do-the-samples-cluster-together">Do the samples cluster together?</a></li>
+  </ul></li>
+  <li><a href="#step-6-clustering-and-visualization" id="toc-step-6-clustering-and-visualization" class="nav-link" data-scroll-target="#step-6-clustering-and-visualization">Step 6: Clustering and Visualization</a></li>
+  <li><a href="#step-7-cell-type-annotation" id="toc-step-7-cell-type-annotation" class="nav-link" data-scroll-target="#step-7-cell-type-annotation">Step 7: Cell Type Annotation</a>
+  <ul class="collapse">
+  <li><a href="#annotation-by-differential-expression" id="toc-annotation-by-differential-expression" class="nav-link" data-scroll-target="#annotation-by-differential-expression">Annotation by Differential Expression</a></li>
+  <li><a href="#annotation-by-marker-gene-expression" id="toc-annotation-by-marker-gene-expression" class="nav-link" data-scroll-target="#annotation-by-marker-gene-expression">Annotation by Marker Gene Expression</a></li>
+  </ul></li>
+  <li><a href="#step-8-preparing-pseudobulk-data-for-differential-expression" id="toc-step-8-preparing-pseudobulk-data-for-differential-expression" class="nav-link" data-scroll-target="#step-8-preparing-pseudobulk-data-for-differential-expression">Step 8: Preparing Pseudobulk Data for Differential Expression</a>
+  <ul class="collapse">
+  <li><a href="#export-cd14-monocyte-pseudobulk-counts" id="toc-export-cd14-monocyte-pseudobulk-counts" class="nav-link" data-scroll-target="#export-cd14-monocyte-pseudobulk-counts">Export CD14+ monocyte pseudobulk counts</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<h1>
+Exercise Solution: A Multi-Sample scRNA-seq Analysis with <code>Scanpy</code>
+</h1>
+<h4 class="anchored">
+Written by Maya Caskey
+</h4>
+<p><br></p>
+<p>This notebook is the solution to the workshop exercise: repeat the workflow from <a href="https://caltech-bioinformatics-resource-center.github.io/Tutorials/notebooks/sc_workflow.html">An Example scRNA-seq Workflow</a> on a dataset with <strong>more than one sample</strong>.</p>
+<p>We use batch 2 of <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE96583">GSE96583</a> from <a href="https://www.nature.com/articles/nbt.4042">Kang et al., 2018</a>. Peripheral blood mononuclear cells (PBMCs) from <strong>8 donors</strong> were pooled and split into two samples:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Sample</th>
+<th>GEO accession</th>
+<th>Condition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ctrl</code></td>
+<td>GSM2560248</td>
+<td>Unstimulated control</td>
+</tr>
+<tr class="even">
+<td><code>stim</code></td>
+<td>GSM2560249</td>
+<td>Stimulated with interferon-β (IFN-β) for 6 hours</td>
+</tr>
+</tbody>
+</table>
+<p>Each sample was run on a 10x Genomics Chromium (v1 chemistry) lane. Because cells from 8 people were pooled, the authors used each cell’s genotype (with their tool <a href="https://github.com/statgen/demuxlet">demuxlet</a>) to work out which donor it came from and to find doublets made of cells from two different donors. We use those labels at the end to make <strong>pseudobulk samples per donor</strong>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Where the count matrices come from">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Where the count matrices come from
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>GEO only provides cell-filtered matrices for this study, so we pre-built <strong>unfiltered</strong> matrices by running <code>kb count</code> (10x v1, GRCh38) on the reads from the original BAM files deposited on SRA. They are produced in the same way as the matrix in the single-sample workflow, so every QC step applies. The script that builds them is <a href="https://github.com/caltech-bioinformatics-resource-center/Tutorials/blob/main/src/notebooks/gse96583_prep.py"><code>gse96583_prep.py</code></a>.</p>
+</div>
+</div>
+<div class="highlight-section">
+<p>This solution follows the same steps as the single-sample workflow, with the changes needed for multiple samples:</p>
+<ol type="1">
+<li>Load the count matrices (pseudoalignment has already been done for you)</li>
+<li>Quality control, <strong>per sample</strong></li>
+<li>Cell filtering, <strong>per sample</strong>, then combining samples and filtering genes</li>
+<li>Normalization and variance stabilization</li>
+<li>Dimensionality reduction and <strong>batch correction with Harmony</strong></li>
+<li>Clustering and visualization</li>
+<li>Cell type annotation</li>
+<li>Preparing pseudobulk counts for differential expression</li>
+</ol>
+</div>
+<section id="initial-set-up" class="level2">
+<h2 class="anchored" data-anchor-id="initial-set-up">Initial Set-Up</h2>
+<section id="install-python-packages" class="level3">
+<h3 class="anchored" data-anchor-id="install-python-packages">Install Python Packages</h3>
+<div id="de36c87b" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:32:37.786171Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:32:37.785899Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:32:37.790870Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:32:37.789961Z&quot;}}">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install <span class="op">--</span>quiet scanpy python<span class="op">-</span>igraph leidenalg harmonypy</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install <span class="op">--</span>quiet scikit<span class="op">-</span>image</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="7917bda3" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:32:37.793165Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:32:37.792981Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:32:38.789497Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:32:38.788969Z&quot;}}" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import packages</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> anndata</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib_inline.backend_inline <span class="im">import</span> set_matplotlib_formats</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scanpy <span class="im">as</span> sc</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> sparse</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>matplotlib.rcParams.update({<span class="st">'font.size'</span>: <span class="dv">12</span>})</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>set_matplotlib_formats(<span class="st">'retina'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="c7651afb" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:32:38.791000Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:32:38.790865Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:32:38.792574Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:32:38.792194Z&quot;}}" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">'ignore'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="download-the-count-matrices" class="level3">
+<h3 class="anchored" data-anchor-id="download-the-count-matrices">Download the count matrices</h3>
+<p>We download one unfiltered count matrix per sample, plus the authors’ per-cell metadata from GEO, which records each cell’s donor, the demuxlet doublet call and the authors’ cell type label.</p>
+<div id="ae0cd790" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:32:38.793772Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:32:38.793695Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:32:39.504354Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:32:39.503604Z&quot;}}" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: replace with the URL where the pre-built h5ad files are hosted</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>DATA_URL <span class="op">=</span> <span class="st">"https://REPLACE-WITH-HOSTING-URL"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>wget <span class="op">-</span>nc <span class="op">-</span>q {DATA_URL}<span class="op">/</span>GSE96583_ctrl_unfiltered.h5ad</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>wget <span class="op">-</span>nc <span class="op">-</span>q {DATA_URL}<span class="op">/</span>GSE96583_stim_unfiltered.h5ad</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>wget <span class="op">-</span>nc <span class="op">-</span>q https:<span class="op">//</span>ftp.ncbi.nlm.nih.gov<span class="op">/</span>geo<span class="op">/</span>series<span class="op">/</span>GSE96nnn<span class="op">/</span>GSE96583<span class="op">/</span>suppl<span class="op">/</span>GSE96583_batch2.total.tsne.df.tsv.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="step-1-load-the-count-matrices" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-load-the-count-matrices">Step 1: Load the Count Matrices</h2>
+<p>We load each sample into its own AnnData object and keep them in a dictionary, so we can run the same QC code on each one with a <code>for</code> loop. These are the same kind of <em>cells x genes</em> matrices that <code>kb count</code> produced in the single-sample workflow, with the gene names already stored in <code>adata.var["gene_names"]</code>.</p>
+<p>We also add each cell’s condition and the authors’ metadata. The authors’ barcodes end in <code>-1</code>, which we remove so they match the barcodes from <code>kb</code>. Barcodes the authors did not call as cells, including the empty droplets, get missing values.</p>
+<div id="6b65d676" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:32:39.507030Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:32:39.506893Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:32:39.543428Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:32:39.542998Z&quot;}}" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>metadata <span class="op">=</span> pd.read_csv(<span class="st">"GSE96583_batch2.total.tsne.df.tsv.gz"</span>, sep<span class="op">=</span><span class="st">"</span><span class="ch">\t</span><span class="st">"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>metadata.index <span class="op">=</span> metadata.index.<span class="bu">str</span>.replace(<span class="st">"-1"</span>, <span class="st">""</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>metadata.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">tsne1</th>
+<th data-quarto-table-cell-role="th">tsne2</th>
+<th data-quarto-table-cell-role="th">ind</th>
+<th data-quarto-table-cell-role="th">stim</th>
+<th data-quarto-table-cell-role="th">cluster</th>
+<th data-quarto-table-cell-role="th">cell</th>
+<th data-quarto-table-cell-role="th">multiplets</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">AAACATACAATGCC</th>
+<td>-4.277833</td>
+<td>-19.294709</td>
+<td>107</td>
+<td>ctrl</td>
+<td>5</td>
+<td>CD4 T cells</td>
+<td>doublet</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">AAACATACATTTCC</th>
+<td>-27.640373</td>
+<td>14.966629</td>
+<td>1016</td>
+<td>ctrl</td>
+<td>9</td>
+<td>CD14+ Monocytes</td>
+<td>singlet</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">AAACATACCAGAAA</th>
+<td>-27.493646</td>
+<td>28.924885</td>
+<td>1256</td>
+<td>ctrl</td>
+<td>9</td>
+<td>CD14+ Monocytes</td>
+<td>singlet</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">AAACATACCAGCTA</th>
+<td>-28.132584</td>
+<td>24.925484</td>
+<td>1256</td>
+<td>ctrl</td>
+<td>9</td>
+<td>CD14+ Monocytes</td>
+<td>doublet</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">AAACATACCATGCA</th>
+<td>-10.468194</td>
+<td>-5.984389</td>
+<td>1488</td>
+<td>ctrl</td>
+<td>3</td>
+<td>CD4 T cells</td>
+<td>singlet</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="79c707f1" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:32:39.544715Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:32:39.544641Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:32:40.488107Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:32:40.487687Z&quot;}}" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_sample(path, condition):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    adata <span class="op">=</span> anndata.read_h5ad(path)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    adata.obs[<span class="st">"condition"</span>] <span class="op">=</span> condition</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The same barcode can occur in both samples, so match on condition too</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    meta <span class="op">=</span> metadata[metadata[<span class="st">"stim"</span>] <span class="op">==</span> condition].reindex(adata.obs_names)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    adata.obs[<span class="st">"donor"</span>] <span class="op">=</span> meta[<span class="st">"ind"</span>].astype(<span class="st">"Int64"</span>).astype(<span class="bu">str</span>).values</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    adata.obs[<span class="st">"demuxlet_call"</span>] <span class="op">=</span> meta[<span class="st">"multiplets"</span>].values</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    adata.obs[<span class="st">"author_cell_type"</span>] <span class="op">=</span> meta[<span class="st">"cell"</span>].values</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> adata</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>samples <span class="op">=</span> {</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ctrl"</span>: load_sample(<span class="st">"GSE96583_ctrl_unfiltered.h5ad"</span>, <span class="st">"ctrl"</span>),</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"stim"</span>: load_sample(<span class="st">"GSE96583_stim_unfiltered.h5ad"</span>, <span class="st">"stim"</span>),</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, ad <span class="kw">in</span> samples.items():</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(name, ad.shape)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ctrl (389258, 39546)
+stim (493849, 39546)</code></pre>
+</div>
+</div>
+</section>
+<section id="step-2-basic-quality-control-per-sample" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-basic-quality-control-per-sample">Step 2: Basic Quality Control (per sample)</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>QC and cell filtering are done on <strong>each sample separately</strong>. Samples can differ in sequencing depth and quality, so a threshold that suits one sample may be wrong for another.</p>
+</div>
+</div>
+<section id="test-for-library-saturation" class="level3">
+<h3 class="anchored" data-anchor-id="test-for-library-saturation">Test for Library Saturation</h3>
+<div id="7d9b295b" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:32:40.489624Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:32:40.489528Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:32:41.310526Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:32:41.309988Z&quot;}}" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">6</span>), sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, (name, ad) <span class="kw">in</span> <span class="bu">zip</span>(axes, samples.items()):</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.asarray(ad.X.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>))[:, <span class="dv">0</span>]</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> np.asarray((ad.X <span class="op">&gt;</span> <span class="dv">0</span>).<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>))[:, <span class="dv">0</span>]</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    ax.scatter(x, y, color<span class="op">=</span><span class="st">"green"</span>, alpha<span class="op">=</span><span class="fl">0.1</span>, s<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    ax.set_xscale(<span class="st">"log"</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    ax.set_yscale(<span class="st">"log"</span>, nonpositive<span class="op">=</span><span class="st">"clip"</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(<span class="st">"UMI Counts"</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">"Genes Detected"</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    ax.set_title(name)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sc_workflow_exercise_solution_files/figure-html/cell-8-output-1.png" width="1165" height="555" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In both samples, the number of genes detected keeps rising with UMI counts, so neither library is saturated. The two samples look very similar, which is what we expect: they come from the same pool of cells and were processed together.</p>
+</section>
+<section id="examine-the-knee-plot" class="level3">
+<h3 class="anchored" data-anchor-id="examine-the-knee-plot">Examine the Knee Plot</h3>
+<p>Each sample gets its own knee plot and its own UMI cutoff. Look for the point where the curve bends sharply downward, and set the cutoff for each sample there.</p>
+<div id="0db248fb" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:32:41.313714Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:32:41.313609Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:32:41.760957Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:32:41.760507Z&quot;}}" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>cutoffs <span class="op">=</span> {<span class="st">"ctrl"</span>: <span class="dv">300</span>, <span class="st">"stim"</span>: <span class="dv">300</span>}</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">6</span>), sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, (name, ad) <span class="kw">in</span> <span class="bu">zip</span>(axes, samples.items()):</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    knee <span class="op">=</span> np.sort(np.asarray(ad.X.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)).flatten())[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    num_cells <span class="op">=</span> (knee <span class="op">&gt;</span> cutoffs[name]).<span class="bu">sum</span>()</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    ax.loglog(knee, np.arange(<span class="bu">len</span>(knee)), linewidth<span class="op">=</span><span class="dv">5</span>, color<span class="op">=</span><span class="st">"g"</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    ax.axvline(x<span class="op">=</span>cutoffs[name], linewidth<span class="op">=</span><span class="dv">3</span>, color<span class="op">=</span><span class="st">"k"</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    ax.axhline(y<span class="op">=</span>num_cells, linewidth<span class="op">=</span><span class="dv">3</span>, color<span class="op">=</span><span class="st">"k"</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(<span class="st">"UMI Counts"</span>)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">"Set of Barcodes"</span>)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    ax.set_title(<span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>num_cells<span class="sc">:,}</span><span class="ss"> cells above </span><span class="sc">{</span>cutoffs[name]<span class="sc">}</span><span class="ss"> UMIs"</span>)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    ax.grid(<span class="va">True</span>, which<span class="op">=</span><span class="st">"both"</span>)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sc_workflow_exercise_solution_files/figure-html/cell-9-output-1.png" width="1320" height="555" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Both samples have a clear knee. About 15,500 barcodes per sample have hundreds to thousands of UMIs (cells), and the curve then drops steeply to hundreds of thousands of barcodes with only a few UMIs each (empty droplets). A cutoff of 300 UMIs falls on the flat part of the curve, between these two groups, for both samples.</p>
+<p>This matches the experiment: about 15,000 cells were loaded per lane.</p>
+</section>
+</section>
+<section id="step-3-cell-and-gene-filtering" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-cell-and-gene-filtering">Step 3: Cell and Gene Filtering</h2>
+<section id="filter-low-quality-cells-per-sample" class="level3">
+<h3 class="anchored" data-anchor-id="filter-low-quality-cells-per-sample">Filter low-quality cells (per sample)</h3>
+<p>As in the single-sample workflow, we keep barcodes above each sample’s knee-plot cutoff that also have at least 200 detected genes.</p>
+<div id="2682e06a" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:32:41.762820Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:32:41.762718Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:32:41.899857Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:32:41.899500Z&quot;}}" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, ad <span class="kw">in</span> samples.items():</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    n_before <span class="op">=</span> ad.n_obs</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    sc.pp.filter_cells(ad, min_counts<span class="op">=</span>cutoffs[name])</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    sc.pp.filter_cells(ad, min_genes<span class="op">=</span><span class="dv">200</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">: kept </span><span class="sc">{</span>ad<span class="sc">.</span>n_obs<span class="sc">:,}</span><span class="ss"> of </span><span class="sc">{</span>n_before<span class="sc">:,}</span><span class="ss"> barcodes"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ctrl: kept 15,334 of 389,258 barcodes
+stim: kept 15,253 of 493,849 barcodes</code></pre>
+</div>
+</div>
+</section>
+<section id="filter-multiplets-with-scrublet-per-sample" class="level3">
+<h3 class="anchored" data-anchor-id="filter-multiplets-with-scrublet-per-sample">Filter Multiplets with Scrublet (per sample)</h3>
+<p>Scrublet must be run on each sample separately, because each 10x lane has its own doublets.</p>
+<p>The expected doublet rate depends on how many cells were loaded. These lanes were deliberately <strong>over-loaded</strong> with about 15,000 cells each, because demuxlet can find doublets made of cells from two different donors. At this loading, the expected doublet rate is about 10%, much higher than the 0.8% we used for the 1,000-cell dataset.</p>
+<div id="ed0ba2cb" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:32:41.901292Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:32:41.901217Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:34:19.797252Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:34:19.796876Z&quot;}}" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, ad <span class="kw">in</span> samples.items():</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    sc.pp.scrublet(ad, expected_doublet_rate<span class="op">=</span><span class="fl">0.1</span>, random_state<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">: automatic threshold = </span><span class="sc">{</span>ad<span class="sc">.</span>uns[<span class="st">'scrublet'</span>][<span class="st">'threshold'</span>]<span class="sc">:.2f}</span><span class="ss">, "</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>          <span class="ss">f"predicted </span><span class="sc">{</span>ad<span class="sc">.</span>obs[<span class="st">'predicted_doublet'</span>]<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">:,}</span><span class="ss"> doublets"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ctrl: automatic threshold = 0.27, predicted 1,353 doublets
+stim: automatic threshold = 0.24, predicted 1,556 doublets</code></pre>
+</div>
+</div>
+<p>Scrublet chooses its threshold automatically, by looking for a dip between the scores of real cells and the scores of its simulated doublets. It is worth plotting these distributions to check that the threshold (black line) looks sensible:</p>
+<div id="9a4af615" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:34:19.798835Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:34:19.798690Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:34:20.158330Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:34:20.157912Z&quot;}}" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, ad <span class="kw">in</span> samples.items():</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    sc.pl.scrublet_score_distribution(ad)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sc_workflow_exercise_solution_files/figure-html/cell-12-output-1.png" width="775" height="281" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sc_workflow_exercise_solution_files/figure-html/cell-12-output-2.png" width="775" height="281" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>For each sample, the left panel shows the scores of the real cells and the right panel shows the simulated doublets. In both samples the automatic threshold falls after the main peak of real cells, and it flags about 9–10% of cells, close to the expected rate. We keep Scrublet’s predictions.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If the simulated doublet scores do not form two clear peaks, the automatic threshold can end up in the wrong place and flag almost no cells. In that case, set the threshold yourself from this plot, for example with <code>ad.obs["predicted_doublet"] = ad.obs["doublet_score"] &gt; 0.25</code>.</p>
+</div>
+</div>
+</section>
+<section id="filtering-cells-by-mitochondrial-content-per-sample" class="level3">
+<h3 class="anchored" data-anchor-id="filtering-cells-by-mitochondrial-content-per-sample">Filtering Cells by Mitochondrial Content (per sample)</h3>
+<div id="61ffb431" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:34:20.203623Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:34:20.203524Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:34:20.231605Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:34:20.231170Z&quot;}}" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, ad <span class="kw">in</span> samples.items():</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    ad.var[<span class="st">"is_mito"</span>] <span class="op">=</span> ad.var[<span class="st">"gene_names"</span>].<span class="bu">str</span>.startswith(<span class="st">"MT-"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    mito_counts <span class="op">=</span> np.asarray(ad[:, ad.var[<span class="st">"is_mito"</span>]].X.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)).flatten()</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    total_counts <span class="op">=</span> np.asarray(ad.X.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)).flatten()</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    ad.obs[<span class="st">"percent_mito"</span>] <span class="op">=</span> mito_counts <span class="op">/</span> total_counts <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    ad.obs[<span class="st">"n_counts"</span>] <span class="op">=</span> total_counts</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="f74da607" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:34:20.232919Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:34:20.232837Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:34:20.423784Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:34:20.423247Z&quot;}}" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">5</span>), sharey<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, (name, ad) <span class="kw">in</span> <span class="bu">zip</span>(axes, samples.items()):</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    sc.pl.scatter(ad, x<span class="op">=</span><span class="st">"n_counts"</span>, y<span class="op">=</span><span class="st">"percent_mito"</span>, ax<span class="op">=</span>ax, show<span class="op">=</span><span class="va">False</span>, title<span class="op">=</span>name)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sc_workflow_exercise_solution_files/figure-html/cell-14-output-1.png" width="1168" height="477" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Mitochondrial content is low in both samples. Almost all cells have less than 6% mitochondrial counts, with a few cells above that. We set the threshold to 6%, which removes only those outliers.</p>
+<div id="6ab32e92" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:34:20.425443Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:34:20.425347Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:34:20.457414Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:34:20.456962Z&quot;}}" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>mito_threshold <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name <span class="kw">in</span> samples:</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    ad <span class="op">=</span> samples[name]</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    samples[name] <span class="op">=</span> ad[ad.obs[<span class="st">"percent_mito"</span>] <span class="op">&lt;</span> mito_threshold].copy()</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">: kept </span><span class="sc">{</span>samples[name]<span class="sc">.</span>n_obs<span class="sc">:,}</span><span class="ss"> of </span><span class="sc">{</span>ad<span class="sc">.</span>n_obs<span class="sc">:,}</span><span class="ss"> cells"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ctrl: kept 11,793 of 11,828 cells
+stim: kept 11,385 of 11,409 cells</code></pre>
+</div>
+</div>
+</section>
+<section id="combine-the-samples" class="level3">
+<h3 class="anchored" data-anchor-id="combine-the-samples">Combine the samples</h3>
+<p>Now that each sample has been filtered on its own, we combine them into one AnnData object with <code>anndata.concat</code>. The <code>label="sample"</code> argument adds an <code>obs</code> column recording which sample each cell came from. The same barcode can appear in both samples, so <code>index_unique="-"</code> adds the sample name to each barcode to keep cell names unique.</p>
+<div id="c1abb2be" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:34:20.459132Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:34:20.459018Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:34:20.482989Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:34:20.482569Z&quot;}}" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>adata <span class="op">=</span> anndata.concat(samples, label<span class="op">=</span><span class="st">"sample"</span>, index_unique<span class="op">=</span><span class="st">"-"</span>, merge<span class="op">=</span><span class="st">"same"</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>adata</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>AnnData object with n_obs × n_vars = 23178 × 39546
+    obs: 'condition', 'donor', 'demuxlet_call', 'author_cell_type', 'n_counts', 'n_genes', 'doublet_score', 'predicted_doublet', 'percent_mito', 'sample'
+    var: 'gene_names', 'is_mito'</code></pre>
+</div>
+</div>
+<p>Before filtering genes or normalizing, we save a copy of the <strong>raw counts</strong> for all filtered cells. We will need these later to build pseudobulk samples (Step 8).</p>
+<div id="5959e785" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:34:20.484146Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:34:20.484077Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:34:20.493683Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:34:20.493071Z&quot;}}" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>adata_raw <span class="op">=</span> adata.copy()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="filter-out-genes-that-are-not-present-in-any-cells" class="level3">
+<h3 class="anchored" data-anchor-id="filter-out-genes-that-are-not-present-in-any-cells">Filter out genes that are not present in any cells</h3>
+<p>Gene filtering is done <strong>after</strong> combining the samples, so that both samples keep the same set of genes.</p>
+<div id="9b81a019" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:34:20.494982Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:34:20.494891Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:34:20.585002Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:34:20.584570Z&quot;}}" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>sc.pp.filter_genes(adata, min_cells<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>adata</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>AnnData object with n_obs × n_vars = 23178 × 18693
+    obs: 'condition', 'donor', 'demuxlet_call', 'author_cell_type', 'n_counts', 'n_genes', 'doublet_score', 'predicted_doublet', 'percent_mito', 'sample'
+    var: 'gene_names', 'is_mito', 'n_cells'</code></pre>
+</div>
+</div>
+</section>
+<section id="visualizing-count-distributions" class="level3">
+<h3 class="anchored" data-anchor-id="visualizing-count-distributions">Visualizing count distributions</h3>
+<div id="e4a3abcc" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:34:20.586286Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:34:20.586197Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:34:20.809796Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:34:20.809286Z&quot;}}" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>sc.pl.violin(adata, [<span class="st">"n_genes"</span>, <span class="st">"n_counts"</span>], groupby<span class="op">=</span><span class="st">"sample"</span>, jitter<span class="op">=</span><span class="fl">0.4</span>, multi_panel<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sc_workflow_exercise_solution_files/figure-html/cell-19-output-1.png" width="1340" height="418" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="step-4-normalization-and-variance-stabilization" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-normalization-and-variance-stabilization">Step 4: Normalization and Variance Stabilization</h2>
+<div id="07e901f1" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:34:20.812084Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:34:20.811893Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:34:20.881985Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:34:20.881439Z&quot;}}" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>sc.pp.normalize_total(adata, target_sum<span class="op">=</span><span class="fl">1e6</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>sc.pp.log1p(adata)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="highly-variable-gene-hvg-selection" class="level3">
+<h3 class="anchored" data-anchor-id="highly-variable-gene-hvg-selection">Highly Variable Gene (HVG) Selection</h3>
+<p>With multiple samples, we pass <code>batch_key="sample"</code>. Highly variable genes are then found in each sample separately and combined, so that genes are not called variable just because they differ between samples.</p>
+<div id="6c7da0da" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:34:20.883324Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:34:20.883246Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:34:21.194852Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:34:21.194416Z&quot;}}" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>sc.pp.highly_variable_genes(adata, min_mean<span class="op">=</span><span class="fl">0.01</span>, max_mean<span class="op">=</span><span class="dv">8</span>, min_disp<span class="op">=</span><span class="dv">1</span>, n_bins<span class="op">=</span><span class="dv">20</span>, flavor<span class="op">=</span><span class="st">"seurat"</span>, batch_key<span class="op">=</span><span class="st">"sample"</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>sc.pl.highly_variable_genes(adata)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sc_workflow_exercise_solution_files/figure-html/cell-21-output-1.png" width="1068" height="437" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="step-5-dimensionality-reduction-and-batch-correction" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-dimensionality-reduction-and-batch-correction">Step 5: Dimensionality Reduction and Batch Correction</h2>
+<div id="63984168" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:34:21.196466Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:34:21.196372Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:34:21.463577Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:34:21.462538Z&quot;}}" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>sc.pp.pca(adata, mask_var<span class="op">=</span><span class="st">"highly_variable"</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>sc.pl.pca_variance_ratio(adata, n_pcs<span class="op">=</span><span class="dv">50</span>, log<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sc_workflow_exercise_solution_files/figure-html/cell-22-output-1.png" width="577" height="461" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This dataset has more cells and more cell types than the 1,000-cell example, so we use 20 principal components instead of 10. The variance ratio plot above levels off at around 20 PCs.</p>
+<section id="do-the-samples-cluster-together" class="level3">
+<h3 class="anchored" data-anchor-id="do-the-samples-cluster-together">Do the samples cluster together?</h3>
+<p>Before clustering, we check whether cells from the two samples overlap. We build the neighbor graph and a UMAP from the uncorrected PCA and color the cells by condition.</p>
+<div id="65c33bad" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:34:21.466233Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:34:21.466043Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:34:35.687174Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:34:35.686576Z&quot;}}" data-execution_count="24">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>sc.pp.neighbors(adata, n_neighbors<span class="op">=</span><span class="dv">30</span>, n_pcs<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>sc.tl.umap(adata, random_state<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">7</span>))</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>sc.pl.umap(adata, color<span class="op">=</span><span class="st">"condition"</span>, ax<span class="op">=</span>ax, title<span class="op">=</span><span class="st">"Before batch correction"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sc_workflow_exercise_solution_files/figure-html/cell-23-output-1.png" width="921" height="604" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The control and stimulated cells form <strong>separate groups</strong>. IFN-β changes the expression of hundreds of genes in every cell type, so a stimulated monocyte ends up closer to a stimulated T cell than to a control monocyte. If we clustered now, many clusters would mix cell type and condition.</p>
+<p>Our goal at this stage is to find cell types that are <strong>shared</strong> by both conditions, so we use <a href="https://scanpy.readthedocs.io/en/latest/generated/scanpy.external.pp.harmony_integrate.html">Harmony</a> to correct the PCA embedding for the sample effect.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Harmony only changes the PCA embedding (stored as <code>X_pca_harmony</code>). It does not change the expression values. We use the corrected embedding to cluster and annotate cells, then go back to the <strong>raw counts</strong> to test for differences between conditions (Step 8). This way the batch correction does not remove the biological effect we want to measure.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Scanpy provides a wrapper, <code>sc.external.pp.harmony_integrate</code>, but recent versions of <code>harmonypy</code> return the corrected embedding in a different shape than some versions of Scanpy expect. To avoid this, we call <code>harmonypy</code> directly and store the result in <code>adata.obsm["X_pca_harmony"]</code> ourselves.</p>
+</div>
+</div>
+<div id="8eea052f" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:34:35.692025Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:34:35.691899Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:34:37.455555Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:34:37.455052Z&quot;}}" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> harmonypy</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>harmony <span class="op">=</span> harmonypy.run_harmony(adata.obsm[<span class="st">"X_pca"</span>], adata.obs, <span class="st">"sample"</span>, random_state<span class="op">=</span><span class="dv">0</span>, verbose<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> np.asarray(harmony.Z_corr)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Store as cells x PCs (older harmonypy versions return PCs x cells)</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>adata.obsm[<span class="st">"X_pca_harmony"</span>] <span class="op">=</span> Z <span class="cf">if</span> Z.shape[<span class="dv">0</span>] <span class="op">==</span> adata.n_obs <span class="cf">else</span> Z.T</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="step-6-clustering-and-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="step-6-clustering-and-visualization">Step 6: Clustering and Visualization</h2>
+<p>We build the neighbor graph from the Harmony embedding (<code>use_rep="X_pca_harmony"</code>) and then cluster and visualize as before.</p>
+<div id="eea76999" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:34:37.456967Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:34:37.456885Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:34:49.528201Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:34:49.527622Z&quot;}}" data-execution_count="26">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>sc.pp.neighbors(adata, n_neighbors<span class="op">=</span><span class="dv">30</span>, n_pcs<span class="op">=</span><span class="dv">20</span>, use_rep<span class="op">=</span><span class="st">"X_pca_harmony"</span>)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>sc.tl.leiden(adata, resolution<span class="op">=</span><span class="fl">1.0</span>, flavor<span class="op">=</span><span class="st">"igraph"</span>, n_iterations<span class="op">=</span><span class="dv">2</span>, random_state<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>sc.tl.umap(adata, random_state<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="e4e2aedc" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:34:49.529487Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:34:49.529400Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:34:49.793128Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:34:49.792579Z&quot;}}" data-execution_count="27">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">18</span>, <span class="dv">7</span>))</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>sc.pl.umap(adata, color<span class="op">=</span><span class="st">"condition"</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>], show<span class="op">=</span><span class="va">False</span>, title<span class="op">=</span><span class="st">"After batch correction"</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>sc.pl.umap(adata, color<span class="op">=</span><span class="st">"leiden"</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>], show<span class="op">=</span><span class="va">False</span>, legend_loc<span class="op">=</span><span class="st">"on data"</span>)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sc_workflow_exercise_solution_files/figure-html/cell-26-output-1.png" width="1437" height="604" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>After Harmony, the T cells, NK cells and B cells from the two conditions overlap. The monocytes still partly separate by condition, because IFN-β changes monocytes far more than any other cell type, and Harmony cannot (and should not) remove all of a strong biological effect. Some monocyte clusters therefore come mostly from one condition, as the table below shows. This is fine: we will give those clusters the same cell type label.</p>
+<div id="60301fa1" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:34:49.802628Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:34:49.802511Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:34:49.810104Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:34:49.809716Z&quot;}}" data-execution_count="28">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>pd.crosstab(adata.obs[<span class="st">"leiden"</span>], adata.obs[<span class="st">"condition"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">condition</th>
+<th data-quarto-table-cell-role="th">ctrl</th>
+<th data-quarto-table-cell-role="th">stim</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">leiden</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>2278</td>
+<td>83</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>125</td>
+<td>168</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>322</td>
+<td>1751</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>435</td>
+<td>426</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>229</td>
+<td>170</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>35</td>
+<td>57</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>441</td>
+<td>518</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>449</td>
+<td>491</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>294</td>
+<td>263</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">9</th>
+<td>830</td>
+<td>775</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">10</th>
+<td>860</td>
+<td>700</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">11</th>
+<td>503</td>
+<td>427</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">12</th>
+<td>479</td>
+<td>330</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">13</th>
+<td>427</td>
+<td>270</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">14</th>
+<td>860</td>
+<td>883</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">15</th>
+<td>523</td>
+<td>601</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">16</th>
+<td>420</td>
+<td>461</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">17</th>
+<td>310</td>
+<td>362</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">18</th>
+<td>429</td>
+<td>429</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">19</th>
+<td>422</td>
+<td>710</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">20</th>
+<td>498</td>
+<td>531</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">21</th>
+<td>391</td>
+<td>243</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">22</th>
+<td>233</td>
+<td>736</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="step-7-cell-type-annotation" class="level2">
+<h2 class="anchored" data-anchor-id="step-7-cell-type-annotation">Step 7: Cell Type Annotation</h2>
+<section id="annotation-by-differential-expression" class="level3">
+<h3 class="anchored" data-anchor-id="annotation-by-differential-expression">Annotation by Differential Expression</h3>
+<div id="61fc47bd" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:34:49.811441Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:34:49.811365Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:34:54.578999Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:34:54.578561Z&quot;}}" data-execution_count="29">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>nuisance_genes <span class="op">=</span> [<span class="st">"RPS"</span>, <span class="st">"RPL"</span>, <span class="st">"MALAT1"</span>, <span class="st">"MT-"</span>]</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>adata <span class="op">=</span> adata[:, <span class="op">~</span>adata.var[<span class="st">"gene_names"</span>].<span class="bu">str</span>.startswith(<span class="bu">tuple</span>(nuisance_genes))].copy()</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>sc.tl.rank_genes_groups(adata, gene_symbols<span class="op">=</span><span class="st">"gene_names"</span>, groupby<span class="op">=</span><span class="st">"leiden"</span>, method<span class="op">=</span><span class="st">"wilcoxon"</span>)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>sc.pl.rank_genes_groups(adata, n_genes<span class="op">=</span><span class="dv">15</span>, gene_symbols<span class="op">=</span><span class="st">"gene_names"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sc_workflow_exercise_solution_files/figure-html/cell-28-output-1.png" width="2057" height="2309" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="e89da286" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:34:54.583952Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:34:54.583854Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:34:55.306813Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:34:55.306261Z&quot;}}" data-execution_count="30">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>sc.tl.dendrogram(adata, groupby<span class="op">=</span><span class="st">"leiden"</span>, key_added<span class="op">=</span><span class="st">"dea_leiden"</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>sc.pl.rank_genes_groups_dotplot(</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    adata, groupby<span class="op">=</span><span class="st">"leiden"</span>, gene_symbols<span class="op">=</span><span class="st">"gene_names"</span>, standard_scale<span class="op">=</span><span class="st">"var"</span>, n_genes<span class="op">=</span><span class="dv">5</span>, dendrogram<span class="op">=</span><span class="st">"dea_leiden"</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sc_workflow_exercise_solution_files/figure-html/cell-29-output-1.png" width="3534" height="801" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="annotation-by-marker-gene-expression" class="level3">
+<h3 class="anchored" data-anchor-id="annotation-by-marker-gene-expression">Annotation by Marker Gene Expression</h3>
+<p>We use the same PBMC marker list as in the single-sample workflow.</p>
+<div id="e20f2dff" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:34:55.316960Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:34:55.316864Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:34:55.610905Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:34:55.610375Z&quot;}}" data-execution_count="31">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>marker_genes <span class="op">=</span> {</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CD14+ Mono"</span>: [<span class="st">"FCN1"</span>, <span class="st">"CD14"</span>, <span class="st">"LYZ"</span>],</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CD16+ Mono"</span>: [<span class="st">"TCF7L2"</span>, <span class="st">"FCGR3A"</span>, <span class="st">"LYN"</span>, <span class="st">"MS4A7"</span>],</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"DC"</span>: [<span class="st">"FCER1A"</span>, <span class="st">"CST3"</span>],</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"NK"</span>: [<span class="st">"GNLY"</span>, <span class="st">"NKG7"</span>, <span class="st">"CD247"</span>, <span class="st">"FCER1G"</span>, <span class="st">"TYROBP"</span>, <span class="st">"KLRG1"</span>, <span class="st">"FCGR3A"</span>],</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"B cells"</span>: [<span class="st">"MS4A1"</span>, <span class="st">"IGHD"</span>, <span class="st">"IGHM"</span>],</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CD4+ T"</span>: [<span class="st">"CD4"</span>, <span class="st">"IL7R"</span>, <span class="st">"TRBC2"</span>],</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CD8+ T"</span>: [<span class="st">"CD8A"</span>, <span class="st">"CD8B"</span>, <span class="st">"GZMK"</span>, <span class="st">"GZMA"</span>, <span class="st">"GZMB"</span>, <span class="st">"CCL5"</span>],</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"pan T"</span>: [<span class="st">"CD3D"</span>, <span class="st">"CD3E"</span>, <span class="st">"CD3G"</span>]</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>sc.pl.dotplot(adata, marker_genes, gene_symbols<span class="op">=</span><span class="st">"gene_names"</span>, groupby<span class="op">=</span><span class="st">"leiden"</span>, standard_scale<span class="op">=</span><span class="st">"var"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sc_workflow_exercise_solution_files/figure-html/cell-30-output-1.png" width="1063" height="831" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Markers can change between conditions">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Markers can change between conditions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Some markers respond to the treatment itself. For example, IFN-β strongly lowers <strong>CD14</strong> in monocytes, so stimulated CD14+ monocytes have little <em>CD14</em> RNA. Use several markers per cell type, and check the dotplot split by condition:</p>
+</div>
+</div>
+<div id="fc1435c1" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:34:55.613270Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:34:55.613180Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:34:55.799749Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:34:55.799140Z&quot;}}" data-execution_count="32">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>sc.pl.dotplot(adata, marker_genes[<span class="st">"CD14+ Mono"</span>] <span class="op">+</span> marker_genes[<span class="st">"CD16+ Mono"</span>], gene_symbols<span class="op">=</span><span class="st">"gene_names"</span>,</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>              groupby<span class="op">=</span>[<span class="st">"leiden"</span>, <span class="st">"condition"</span>], standard_scale<span class="op">=</span><span class="st">"var"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sc_workflow_exercise_solution_files/figure-html/cell-31-output-1.png" width="412" height="1402" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>From the two dotplots, we can annotate the clusters:</p>
+<ul>
+<li><strong>CD14+ monocytes</strong> (clusters 0, 2 and 22): <em>FCN1</em> and <em>LYZ</em>. Cluster 0 is mostly control cells and has high <em>CD14</em>, while clusters 2 and 22 are mostly stimulated cells with low <em>CD14</em>. These are the same cell type in two conditions.</li>
+<li><strong>CD16+ monocytes</strong> (cluster 20): <em>FCGR3A</em> and <em>MS4A7</em>.</li>
+<li><strong>Dendritic cells</strong> (cluster 1): <em>CST3</em> and <em>FCER1A</em>, without the monocyte markers <em>FCN1</em> and <em>CD14</em>.</li>
+<li><strong>Plasmacytoid dendritic cells</strong> (cluster 5): a small cluster with high <em>GZMB</em> and <em>CST3</em> but no T cell or NK cell markers. This combination is typical of pDCs, which are not in our marker list. This shows why the differential expression results are useful alongside a marker list.</li>
+<li><strong>B cells</strong> (clusters 6, 16 and 21): <em>MS4A1</em>, <em>IGHM</em> and <em>IGHD</em>.</li>
+<li><strong>NK cells and CD8+ T cells</strong> (clusters 9 and 14): <em>GNLY</em>, <em>NKG7</em>, <em>GZMB</em> and <em>CCL5</em>, with <em>CD8A</em> in some cells. At this resolution NK cells and CD8+ T cells cluster together, so we label them together.</li>
+<li><strong>CD4+ T cells</strong> (all other clusters): <em>CD3D/E/G</em>, <em>IL7R</em> and <em>TRBC2</em>, without the cytotoxic markers. There are many small CD4+ T cell clusters because Leiden at resolution 1.0 splits this large, fairly uniform population. We give them all the same label.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Leiden clustering can give different cluster numbers on different computers or package versions. If your clusters do not match the numbers below, use the dotplots to make your own annotation dictionary.</p>
+</div>
+</div>
+<div id="87d67685" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:34:55.801685Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:34:55.801577Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:34:55.805403Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:34:55.804974Z&quot;}}" data-execution_count="33">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>annotation <span class="op">=</span> {</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"0"</span>: <span class="st">"CD14+ Monocytes"</span>,</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"1"</span>: <span class="st">"Dendritic Cells"</span>,</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"2"</span>: <span class="st">"CD14+ Monocytes"</span>,</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"3"</span>: <span class="st">"CD4+ T Cells"</span>,</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"4"</span>: <span class="st">"CD4+ T Cells"</span>,</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"5"</span>: <span class="st">"Plasmacytoid DCs"</span>,</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"6"</span>: <span class="st">"B Cells"</span>,</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"7"</span>: <span class="st">"CD4+ T Cells"</span>,</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"8"</span>: <span class="st">"CD4+ T Cells"</span>,</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"9"</span>: <span class="st">"NK / CD8+ T Cells"</span>,</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"10"</span>: <span class="st">"CD4+ T Cells"</span>,</span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"11"</span>: <span class="st">"CD4+ T Cells"</span>,</span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"12"</span>: <span class="st">"CD4+ T Cells"</span>,</span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"13"</span>: <span class="st">"CD4+ T Cells"</span>,</span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"14"</span>: <span class="st">"NK / CD8+ T Cells"</span>,</span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"15"</span>: <span class="st">"CD4+ T Cells"</span>,</span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"16"</span>: <span class="st">"B Cells"</span>,</span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"17"</span>: <span class="st">"CD4+ T Cells"</span>,</span>
+<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"18"</span>: <span class="st">"CD4+ T Cells"</span>,</span>
+<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"19"</span>: <span class="st">"CD4+ T Cells"</span>,</span>
+<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"20"</span>: <span class="st">"CD16+ Monocytes"</span>,</span>
+<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"21"</span>: <span class="st">"B Cells"</span>,</span>
+<span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"22"</span>: <span class="st">"CD14+ Monocytes"</span>,</span>
+<span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a>adata.obs[<span class="st">"cell_type"</span>] <span class="op">=</span> adata.obs[<span class="st">"leiden"</span>].<span class="bu">map</span>(annotation).astype(<span class="st">"category"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="301b00a6" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:34:55.806559Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:34:55.806475Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:34:55.976594Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:34:55.975999Z&quot;}}" data-execution_count="34">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">7</span>))</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>sc.pl.umap(adata, color<span class="op">=</span><span class="st">"cell_type"</span>, ax<span class="op">=</span>ax)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sc_workflow_exercise_solution_files/figure-html/cell-33-output-1.png" width="1040" height="604" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="step-8-preparing-pseudobulk-data-for-differential-expression" class="level2">
+<h2 class="anchored" data-anchor-id="step-8-preparing-pseudobulk-data-for-differential-expression">Step 8: Preparing Pseudobulk Data for Differential Expression</h2>
+<p>Now we can ask how a cell type responds to IFN-β. As explained in the single-sample workflow, single cells are not independent replicates. Instead, we sum the raw counts for each <strong>cell type x condition x donor</strong> combination.</p>
+<p>Having 8 donors in this dataset is useful: each donor gives one pseudobulk sample per condition, so we get <strong>8 control and 8 stimulated replicates</strong> for each cell type. Because each donor appears in both conditions, the comparison is <strong>paired</strong>, and the donor can be included as a blocking factor in edgeR.</p>
+<p>First we copy the cell type labels onto the raw count matrix we saved before gene filtering.</p>
+<div id="96872c4e" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:34:55.991938Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:34:55.991856Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:34:56.039712Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:34:56.039275Z&quot;}}" data-execution_count="36">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>adata_raw.obs[<span class="st">"cell_type"</span>] <span class="op">=</span> adata.obs[<span class="st">"cell_type"</span>]</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>pseudobulk <span class="op">=</span> sc.get.aggregate(adata_raw, by<span class="op">=</span>[<span class="st">"cell_type"</span>, <span class="st">"condition"</span>, <span class="st">"donor"</span>], func<span class="op">=</span><span class="st">"sum"</span>)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>pseudobulk</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="36">
+<pre><code>AnnData object with n_obs × n_vars = 112 × 39546
+    obs: 'cell_type', 'condition', 'donor'
+    var: 'gene_names', 'is_mito'
+    layers: 'sum'</code></pre>
+</div>
+</div>
+<p>It is worth checking how many cells went into each pseudobulk sample. Samples built from only a few cells are noisy.</p>
+<div id="1269d228" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:34:56.040911Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:34:56.040839Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:34:56.046752Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:34:56.046434Z&quot;}}" data-execution_count="37">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>n_cells <span class="op">=</span> adata_raw.obs.groupby([<span class="st">"cell_type"</span>, <span class="st">"condition"</span>, <span class="st">"donor"</span>], observed<span class="op">=</span><span class="va">True</span>).size()</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>n_cells.unstack(<span class="st">"donor"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="37">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">donor</th>
+<th data-quarto-table-cell-role="th">101</th>
+<th data-quarto-table-cell-role="th">107</th>
+<th data-quarto-table-cell-role="th">1015</th>
+<th data-quarto-table-cell-role="th">1016</th>
+<th data-quarto-table-cell-role="th">1039</th>
+<th data-quarto-table-cell-role="th">1244</th>
+<th data-quarto-table-cell-role="th">1256</th>
+<th data-quarto-table-cell-role="th">1488</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">cell_type</th>
+<th data-quarto-table-cell-role="th">condition</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th rowspan="2" data-quarto-table-cell-role="th" data-valign="top">B Cells</th>
+<th data-quarto-table-cell-role="th">ctrl</th>
+<td>106</td>
+<td>42</td>
+<td>439</td>
+<td>120</td>
+<td>26</td>
+<td>106</td>
+<td>206</td>
+<td>207</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">stim</th>
+<td>131</td>
+<td>55</td>
+<td>341</td>
+<td>111</td>
+<td>36</td>
+<td>85</td>
+<td>198</td>
+<td>265</td>
+</tr>
+<tr class="odd">
+<th rowspan="2" data-quarto-table-cell-role="th" data-valign="top">CD14+ Monocytes</th>
+<th data-quarto-table-cell-role="th">ctrl</th>
+<td>207</td>
+<td>211</td>
+<td>809</td>
+<td>380</td>
+<td>115</td>
+<td>418</td>
+<td>392</td>
+<td>301</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">stim</th>
+<td>257</td>
+<td>165</td>
+<td>663</td>
+<td>329</td>
+<td>156</td>
+<td>285</td>
+<td>368</td>
+<td>347</td>
+</tr>
+<tr class="odd">
+<th rowspan="2" data-quarto-table-cell-role="th" data-valign="top">CD16+ Monocytes</th>
+<th data-quarto-table-cell-role="th">ctrl</th>
+<td>72</td>
+<td>25</td>
+<td>160</td>
+<td>78</td>
+<td>16</td>
+<td>38</td>
+<td>43</td>
+<td>66</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">stim</th>
+<td>104</td>
+<td>23</td>
+<td>150</td>
+<td>83</td>
+<td>24</td>
+<td>14</td>
+<td>53</td>
+<td>80</td>
+</tr>
+<tr class="odd">
+<th rowspan="2" data-quarto-table-cell-role="th" data-valign="top">CD4+ T Cells</th>
+<th data-quarto-table-cell-role="th">ctrl</th>
+<td>331</td>
+<td>175</td>
+<td>898</td>
+<td>461</td>
+<td>189</td>
+<td>1099</td>
+<td>1014</td>
+<td>1193</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">stim</th>
+<td>400</td>
+<td>188</td>
+<td>730</td>
+<td>362</td>
+<td>280</td>
+<td>832</td>
+<td>933</td>
+<td>1454</td>
+</tr>
+<tr class="odd">
+<th rowspan="2" data-quarto-table-cell-role="th" data-valign="top">Dendritic Cells</th>
+<th data-quarto-table-cell-role="th">ctrl</th>
+<td>15</td>
+<td>6</td>
+<td>21</td>
+<td>13</td>
+<td>9</td>
+<td>21</td>
+<td>17</td>
+<td>23</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">stim</th>
+<td>23</td>
+<td>14</td>
+<td>24</td>
+<td>16</td>
+<td>4</td>
+<td>31</td>
+<td>23</td>
+<td>33</td>
+</tr>
+<tr class="odd">
+<th rowspan="2" data-quarto-table-cell-role="th" data-valign="top">NK / CD8+ T Cells</th>
+<th data-quarto-table-cell-role="th">ctrl</th>
+<td>96</td>
+<td>45</td>
+<td>286</td>
+<td>598</td>
+<td>35</td>
+<td>131</td>
+<td>353</td>
+<td>146</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">stim</th>
+<td>144</td>
+<td>51</td>
+<td>247</td>
+<td>584</td>
+<td>35</td>
+<td>116</td>
+<td>303</td>
+<td>178</td>
+</tr>
+<tr class="odd">
+<th rowspan="2" data-quarto-table-cell-role="th" data-valign="top">Plasmacytoid DCs</th>
+<th data-quarto-table-cell-role="th">ctrl</th>
+<td>2</td>
+<td>1</td>
+<td>7</td>
+<td>1</td>
+<td>1</td>
+<td>5</td>
+<td>6</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">stim</th>
+<td>8</td>
+<td>1</td>
+<td>4</td>
+<td>2</td>
+<td>13</td>
+<td>2</td>
+<td>12</td>
+<td>15</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<section id="export-cd14-monocyte-pseudobulk-counts" class="level3">
+<h3 class="anchored" data-anchor-id="export-cd14-monocyte-pseudobulk-counts">Export CD14+ monocyte pseudobulk counts</h3>
+<p>Monocytes have one of the strongest responses to IFN-β, so we export their pseudobulk counts as an example. The counts matrix has one row per gene and one column per sample, the same layout as the bulk RNA-seq count matrix. We also save a metadata table describing each column.</p>
+<div id="10655f49" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-02T03:34:56.047898Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-02T03:34:56.047818Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-02T03:34:56.180108Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-02T03:34:56.179685Z&quot;}}" data-execution_count="38">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>cell_type <span class="op">=</span> <span class="st">"CD14+ Monocytes"</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>pb <span class="op">=</span> pseudobulk[pseudobulk.obs[<span class="st">"cell_type"</span>] <span class="op">==</span> cell_type]</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>sample_names <span class="op">=</span> (pb.obs[<span class="st">"condition"</span>].astype(<span class="bu">str</span>) <span class="op">+</span> <span class="st">"_"</span> <span class="op">+</span> pb.obs[<span class="st">"donor"</span>].astype(<span class="bu">str</span>)).values</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>counts <span class="op">=</span> pd.DataFrame(pb.layers[<span class="st">"sum"</span>].T, index<span class="op">=</span>pb.var_names, columns<span class="op">=</span>sample_names)</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>counts.insert(<span class="dv">0</span>, <span class="st">"gene_name"</span>, adata_raw.var.loc[counts.index, <span class="st">"gene_names"</span>].values)</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>sample_metadata <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"sample"</span>: sample_names,</span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"condition"</span>: pb.obs[<span class="st">"condition"</span>].values,</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"donor"</span>: pb.obs[<span class="st">"donor"</span>].values,</span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"n_cells"</span>: [n_cells[(cell_type, c, d)] <span class="cf">for</span> c, d <span class="kw">in</span> <span class="bu">zip</span>(pb.obs[<span class="st">"condition"</span>], pb.obs[<span class="st">"donor"</span>])],</span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a>counts.to_csv(<span class="st">"pseudobulk_CD14_mono_counts.csv"</span>)</span>
+<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a>sample_metadata.to_csv(<span class="st">"pseudobulk_CD14_mono_metadata.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(counts.shape)</span>
+<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a>sample_metadata</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(39546, 17)</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="38">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">sample</th>
+<th data-quarto-table-cell-role="th">condition</th>
+<th data-quarto-table-cell-role="th">donor</th>
+<th data-quarto-table-cell-role="th">n_cells</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>ctrl_101</td>
+<td>ctrl</td>
+<td>101</td>
+<td>207</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>ctrl_107</td>
+<td>ctrl</td>
+<td>107</td>
+<td>211</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>ctrl_1015</td>
+<td>ctrl</td>
+<td>1015</td>
+<td>809</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>ctrl_1016</td>
+<td>ctrl</td>
+<td>1016</td>
+<td>380</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>ctrl_1039</td>
+<td>ctrl</td>
+<td>1039</td>
+<td>115</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>ctrl_1244</td>
+<td>ctrl</td>
+<td>1244</td>
+<td>418</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>ctrl_1256</td>
+<td>ctrl</td>
+<td>1256</td>
+<td>392</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>ctrl_1488</td>
+<td>ctrl</td>
+<td>1488</td>
+<td>301</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>stim_101</td>
+<td>stim</td>
+<td>101</td>
+<td>257</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">9</th>
+<td>stim_107</td>
+<td>stim</td>
+<td>107</td>
+<td>165</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">10</th>
+<td>stim_1015</td>
+<td>stim</td>
+<td>1015</td>
+<td>663</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">11</th>
+<td>stim_1016</td>
+<td>stim</td>
+<td>1016</td>
+<td>329</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">12</th>
+<td>stim_1039</td>
+<td>stim</td>
+<td>1039</td>
+<td>156</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">13</th>
+<td>stim_1244</td>
+<td>stim</td>
+<td>1244</td>
+<td>285</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">14</th>
+<td>stim_1256</td>
+<td>stim</td>
+<td>1256</td>
+<td>368</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">15</th>
+<td>stim_1488</td>
+<td>stim</td>
+<td>1488</td>
+<td>347</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>These CSV files can be loaded into R and analyzed with edgeR, as in our <a href="https://caltech-bioinformatics-resource-center.github.io/Tutorials/notebooks/bulk_workflow.html"><strong>Bulk RNA-seq Workflow</strong></a>. Because each donor appears in both conditions, use a paired design that includes the donor, for example <code>model.matrix(~ donor + condition)</code>.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/caltech-bioinformatics-resource-center\.github\.io\/Tutorials\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><img src="../images/logos/black_Caltech_logo.png" alt="Caltech Logo" width="300"></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>© 2025 Caltech Bioinformatics Resource Center</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
