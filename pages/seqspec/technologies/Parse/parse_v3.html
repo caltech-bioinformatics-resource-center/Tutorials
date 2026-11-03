@@ -274,6 +274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#add-in-the-file-objects" id="toc-add-in-the-file-objects" class="nav-link" data-scroll-target="#add-in-the-file-objects">Add in the file objects</a></li>
   </ul></li>
   <li><a href="#step-3-alter-the-library-spec" id="toc-step-3-alter-the-library-spec" class="nav-link" data-scroll-target="#step-3-alter-the-library-spec">Step 3: Alter the Library Spec</a></li>
+  <li><a href="#step-4-check-your-seqspec" id="toc-step-4-check-your-seqspec" class="nav-link" data-scroll-target="#step-4-check-your-seqspec">Step 4: Check Your seqspec</a></li>
   </ul>
 </nav>
 </nav>
@@ -336,7 +337,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td>Illumina i5 Index</td>
-<td style="text-align: center;">Fixed</td>
+<td style="text-align: center;">Onlist</td>
 <td style="text-align: center;">8 bp</td>
 </tr>
 <tr class="odd">
@@ -351,7 +352,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td>Round 1 Barcode</td>
-<td style="text-align: center;">OnList</td>
+<td style="text-align: center;">Onlist</td>
 <td style="text-align: center;">8 bp</td>
 </tr>
 <tr class="even">
@@ -361,7 +362,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td>Round 2 Barcode</td>
-<td style="text-align: center;">OnList</td>
+<td style="text-align: center;">Onlist</td>
 <td style="text-align: center;">8 bp</td>
 </tr>
 <tr class="even">
@@ -371,7 +372,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td>Round 3 Barcode</td>
-<td style="text-align: center;">OnList</td>
+<td style="text-align: center;">Onlist</td>
 <td style="text-align: center;">8 bp</td>
 </tr>
 <tr class="even">
@@ -386,7 +387,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td>Illumina i7 Index</td>
-<td style="text-align: center;">Fixed</td>
+<td style="text-align: center;">Onlist</td>
 <td style="text-align: center;">8 bp</td>
 </tr>
 <tr class="odd">
@@ -456,14 +457,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">assay_id</span><span class="kw">:</span><span class="at"> Parse-Evercode-WT-v3</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Dual-Indexed Parse Evercode WT v3</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">doi</span><span class="kw">:</span><span class="at"> https://support.parsebiosciences.com/hc/en-us/article_attachments/31841872776724</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> 2024-02-20</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> 20 February 2024</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> Parse Evercode WT v3 using dual Illumina multiplex index</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">modalities</span><span class="kw">:</span><span class="at"> rna</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">lib_struct</span><span class="kw">:</span><span class="co"> ##TBD##</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">sequence_protocol</span><span class="kw">:</span><span class="at"> Illumina NextSeq 2000</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">sequence_kit</span><span class="kw">:</span><span class="at"> Illumina NextSeq 2000 P3 XLEAP-SBS Reagent kit</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library_protocol</span><span class="kw">:</span><span class="at"> Parse Evercode WT v3</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library_kit</span><span class="kw">:</span><span class="at"> Parse Evercode WT v3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">modalities</span><span class="kw">:</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> rna</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">lib_struct</span><span class="kw">:</span><span class="co"> ##TBD##</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">sequence_protocol</span><span class="kw">:</span><span class="at"> Illumina NextSeq 2000 (EFO:0010963)</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">sequence_kit</span><span class="kw">:</span><span class="at"> NextSeq 2000 P3 XLEAP-SBS Reagent Kit</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library_protocol</span><span class="kw">:</span><span class="at"> single-cell RNA sequencing assay (OBI:0002631)</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library_kit</span><span class="kw">:</span><span class="at"> Parse Evercode WT v3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>sequence_protocol</code>, <code>sequence_kit</code> and <code>library_protocol</code> must be chosen from seqspec’s <a href="https://github.com/pachterlab/seqspec/blob/main/seqspec/schema/seqspec.schema.json">controlled vocabulary</a> (use <code>Custom</code> if yours is not listed), and the <code>date</code> must be written as day, month name and year.</p>
 </section>
 <section id="step-2-alter-the-sequence-spec" class="level2">
 <h2 class="anchored" data-anchor-id="step-2-alter-the-sequence-spec">Step 2: Alter the Sequence Spec</h2>
@@ -496,10 +499,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">urltype</span><span class="kw">:</span><span class="at"> </span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">md5</span><span class="kw">:</span><span class="at"> </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>file_id, filetype, filename</strong> — identifies and describes the file</p>
-<p><strong>filesize</strong> - the size of the file</p>
-<p><strong>url</strong> - (optional) the link to the file</p>
-<p><strong>urltype</strong> - (optional) the type of url</p>
-<p><strong>md5</strong> - (optional) MD5 fingerprint of data</p>
+<p><strong>filesize</strong> - the size of the file in bytes, written as a whole number (e.g., <code>10737418240</code>, not <code>10 GB</code>)</p>
+<p><strong>url</strong> - the link or path to the file. For files stored alongside the seqspec, use the file’s path relative to the seqspec file</p>
+<p><strong>urltype</strong> - the type of url: <code>local</code>, <code>https</code>, <code>http</code> or <code>ftp</code></p>
+<p><strong>md5</strong> - MD5 fingerprint of data (32 lowercase hexadecimal characters)</p>
+<p>All seven fields are required for <code>seqspec check</code> to pass. Remove the <code>##...##</code> placeholders from the template as you fill them in: YAML treats anything after <code>#</code> as a comment, so an unfilled placeholder reads as an empty value.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="What does md5 stand for?">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -531,11 +535,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">region_type</span><span class="kw">:</span><span class="at"> cdna</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">name</span><span class="kw">:</span><span class="at"> cDNA</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">sequence_type</span><span class="kw">:</span><span class="at"> random</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">sequence</span><span class="kw">:</span><span class="at"> XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">sequence</span><span class="kw">:</span><span class="at"> XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">min_len</span><span class="kw">:</span><span class="at"> </span><span class="dv">150</span></span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">max_len</span><span class="kw">:</span><span class="at"> </span><span class="dv">150</span></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">onlist</span><span class="kw">:</span><span class="at"> </span><span class="ch">null</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">regions</span><span class="kw">:</span><span class="at"> </span><span class="ch">null</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">regions</span><span class="kw">:</span><span class="at"> </span><span class="kw">[]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Adjust the number of <code>X</code> characters in the <code>sequence</code> field to match the new length, and then adjust the full library sequence and length accordingly.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library_spec</span><span class="kw">:</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> !Region</span></span>
@@ -543,16 +547,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">region_type</span><span class="kw">:</span><span class="at"> named</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> rna</span></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">sequence_type</span><span class="kw">:</span><span class="at"> joined</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">sequence</span><span class="kw">:</span><span class="at"> AATGATACGGCGACCACCGAGATCTACACNNNNNNNNTCTTTCCCTACACGACGCTCTTCCGATCTXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXNNNNNNNNGAGGTGGTTGGANNNNNNNNCTGACCCCTCATNNNNNNNNNNNNNNNNNNAGATCGGAAGAGCACACGTCTGAACTCCAGTCACNNNNNNNNATCTCGTATGCCGTCTTCTGCTTG</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">min_len</span><span class="kw">:</span><span class="at"> </span><span class="dv">364</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">max_len</span><span class="kw">:</span><span class="at"> </span><span class="dv">364</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">sequence</span><span class="kw">:</span><span class="at"> AATGATACGGCGACCACCGAGATCTACACNNNNNNNNTCTTTCCCTACACGACGCTCTTCCGATCTXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXNNNNNNNNGAGGTGGTTGGANNNNNNNNCTGACCCCTCATNNNNNNNNXXXXXXXXXXAGATCGGAAGAGCACACGTCTGAACTCCAGTCACNNNNNNNNATCTCGTATGCCGTCTTCTGCTTG</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">min_len</span><span class="kw">:</span><span class="at"> </span><span class="dv">340</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">max_len</span><span class="kw">:</span><span class="at"> </span><span class="dv">340</span></span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">onlist</span><span class="kw">:</span><span class="at"> </span><span class="ch">null</span></span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">parent_id</span><span class="kw">:</span><span class="at"> </span><span class="ch">null</span></span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">regions</span><span class="kw">:</span></span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> !Region</span></span>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="at">  ...</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="step-4-check-your-seqspec" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-check-your-seqspec">Step 4: Check Your seqspec</h2>
+<p>Validate your finished file with <code>seqspec check</code> (see <a href="../../../../pages/seqspec/seqspec.html">What is seqspec?</a>):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">seqspec</span> check seqspec.yaml</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If the command prints nothing, your seqspec is valid.</p>
 <div class="emphasis">
 <p>Now you have a complete seqspec file for your data. All that’s left is to save it with your dataset!</p>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled" title="Do not use these seqspecs with `seqspec onlist` for kb-python">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Do not use these seqspecs with <code>seqspec onlist</code> for kb-python
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The barcode onlists in these seqspecs are written on the library’s top strand, as the seqspec format requires, but Read 2 sequences the opposite strand. As a result, the barcodes returned by <code>seqspec onlist</code> will not match your Read 2 FASTQ and should not be passed to <code>kb count -w</code>. Instead, follow the <code>kb count</code> instructions on our <a href="../../../../pages/technologies/parse.html">Parse page</a>.</p>
+</div>
 </div>
 
 
