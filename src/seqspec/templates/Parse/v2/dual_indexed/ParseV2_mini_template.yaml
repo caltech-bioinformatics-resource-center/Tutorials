@@ -3,13 +3,14 @@ seqspec_version: 0.3.0
 assay_id: Parse-Evercode-WT-Mini-v2-dual-index
 name: Dual-Indexed Parse Evercode WT Mini v2
 doi: https://support.parsebiosciences.com/hc/en-us/article_attachments/24507673172244
-date: 2024-02-20
+date: 20 February 2024
 description: Parse Evercode WT Mini v2 using dual Illumina multiplex index
-modalities: rna
+modalities:
+- rna
 lib_struct: https://igvf.github.io/seqspec/
 sequence_protocol: ##PROTOCOL##
 sequence_kit: ##SEQ_KIT##
-library_protocol: Parse Evercode WT v2
+library_protocol: single-cell RNA sequencing assay (OBI:0002631)
 library_kit: Parse Evercode WT Mini v2 Dual Index
 
 sequence_spec:
@@ -88,51 +89,54 @@ library_spec: ##Adjust cdna length according to sequence depth##
   region_type: named
   name: rna
   sequence_type: joined
-  sequence: AATGATACGGCGACCACCGAGATCTACACNNNNNNNNTCTTTCCCTACACGACGCTCTTCCGATCTXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXNNNNNNNNCCACAGTCTCAAGCACGTGGATNNNNNNNNAGTCGTACGCCGATGCGAAACATCGGCCACNNNNNNNNNNNNNNNNNNAGATCGGAAGAGCACACGTCTGAACTCCAGTCACNNNNNNNNATCTCGTATGCCGTCTTCTGCTTG
+  sequence: AATGATACGGCGACCACCGAGATCTACACNNNNNNNNTCTTTCCCTACACGACGCTCTTCCGATCTXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXNNNNNNNNCCACAGTCTCAAGCACGTGGATNNNNNNNNAGTCGTACGCCGATGCGAAACATCGGCCACNNNNNNNNXXXXXXXXXXAGATCGGAAGAGCACACGTCTGAACTCCAGTCACNNNNNNNNATCTCGTATGCCGTCTTCTGCTTG
   min_len: 284
   max_len: 284
   onlist: null
   parent_id: null
   regions:
   - !Region
-    parent_id: null
+    parent_id: rna
     region_id: P5
-    region_type: primer
+    region_type: illumina_p5
     name: Illumina P5 Primer
     sequence_type: fixed
     sequence: AATGATACGGCGACCACCGAGATCTACAC
     min_len: 29
     max_len: 29
     onlist: null
-    regions: null
+    regions: []
 
   - !Region
-    parent_id: null
+    parent_id: rna
     region_id: i5_index
-    region_type: index
+    region_type: index5
     name: Illumina i5 Index
     sequence_type: onlist
     sequence: NNNNNNNN
     min_len: 8
     max_len: 8
     onlist: !Onlist
+      file_id: dual_i5.txt
       filename: dual_i5.txt
       filetype: txt
-      filesize: 4.0 KB
-      url: https://pachterlab.github.io/cbrc-spec/seqspec/onlists/Parse/dual_i5.txt
-    regions: null
+      filesize: 431
+      url: https://caltech-bioinformatics-resource-center.github.io/Tutorials/seqspec/onlists/Parse/dual_i5.txt
+      urltype: https
+      md5: "0a9d99e31ad66a265ac6eb08520fcfe6"
+    regions: []
 
   - !Region
-    parent_id: null
+    parent_id: rna
     region_id: truseq_read1
-    region_type: primer
+    region_type: truseq_read1
     name: Truseq Read 1
     sequence_type: fixed
     sequence: TCTTTCCCTACACGACGCTCTTCCGATCT
     min_len: 29
     max_len: 29
     onlist: null
-    regions: null
+    regions: []
 
   - !Region
     parent_id: rna
@@ -144,10 +148,10 @@ library_spec: ##Adjust cdna length according to sequence depth##
     min_len: 66
     max_len: 66
     onlist: null
-    regions: null
+    regions: []
 
   - !Region
-    parent_id: null
+    parent_id: rna
     region_id: R1_BC
     region_type: barcode
     name: Round 1 Barcode
@@ -156,14 +160,17 @@ library_spec: ##Adjust cdna length according to sequence depth##
     min_len: 8
     max_len: 8
     onlist: !Onlist
+      file_id: BC1_mini_rev.txt
       filename: BC1_mini_rev.txt
       filetype: txt
-      filesize: 4.0 KB
-      url: https://pachterlab.github.io/cbrc-spec/seqspec/onlists/Parse/v2/BC1_mini_rev.txt
-    regions: null
+      filesize: 216
+      url: https://caltech-bioinformatics-resource-center.github.io/Tutorials/seqspec/onlists/Parse/v2/BC1_mini_rev.txt
+      urltype: https
+      md5: "f1a2d99291176facff9bf1afccb0766b"
+    regions: []
 
   - !Region
-    parent_id: null
+    parent_id: rna
     region_id: linker_1
     region_type: linker
     name: Parse v2 linker 1
@@ -172,10 +179,10 @@ library_spec: ##Adjust cdna length according to sequence depth##
     min_len: 22
     max_len: 22
     onlist: null
-    regions: null
+    regions: []
 
   - !Region
-    parent_id: null
+    parent_id: rna
     region_id: R2_BC
     region_type: barcode
     name: Round 2 Barcode
@@ -184,14 +191,17 @@ library_spec: ##Adjust cdna length according to sequence depth##
     min_len: 8
     max_len: 8
     onlist: !Onlist
+      file_id: BC2_3_rev.txt
       filename: BC2_3_rev.txt
       filetype: txt
-      filesize: 4.0 KB
-      url: https://pachterlab.github.io/cbrc-spec/seqspec/onlists/Parse/v2/BC2_3_rev.txt
-    regions: null
+      filesize: 864
+      url: https://caltech-bioinformatics-resource-center.github.io/Tutorials/seqspec/onlists/Parse/v2/BC2_3_rev.txt
+      urltype: https
+      md5: "d3818caa32bb707c98e17aa614be58ef"
+    regions: []
 
   - !Region
-    parent_id: null
+    parent_id: rna
     region_id: linker_2
     region_type: linker
     name: Parse v2 Linker 2
@@ -200,10 +210,10 @@ library_spec: ##Adjust cdna length according to sequence depth##
     min_len: 30
     max_len: 30
     onlist: null
-    regions: null
+    regions: []
 
   - !Region
-    parent_id: null
+    parent_id: rna
     region_id: R3_BC
     region_type: barcode
     name: Round 3 Barcode
@@ -212,60 +222,66 @@ library_spec: ##Adjust cdna length according to sequence depth##
     min_len: 8
     max_len: 8
     onlist: !Onlist
+      file_id: BC2_3_rev.txt
       filename: BC2_3_rev.txt
       filetype: txt
-      filesize: 4.0 KB
-      url: https://pachterlab.github.io/cbrc-spec/seqspec/onlists/Parse/v2/BC2_3_rev.txt
-    regions: null
+      filesize: 864
+      url: https://caltech-bioinformatics-resource-center.github.io/Tutorials/seqspec/onlists/Parse/v2/BC2_3_rev.txt
+      urltype: https
+      md5: "d3818caa32bb707c98e17aa614be58ef"
+    regions: []
 
   - !Region
-    parent_id: null
+    parent_id: rna
     region_id: umi
     region_type: umi
     name: UMI
     sequence_type: random
-    sequence: NNNNNNNNNN
+    sequence: XXXXXXXXXX
     min_len: 10
     max_len: 10
     onlist: null
-    regions: null
+    regions: []
 
   - !Region
-    parent_id: null
+    parent_id: rna
     region_id: truseq_read2
-    region_type: primer
+    region_type: truseq_read2
     name: Truseq Read 2
     sequence_type: fixed
     sequence: AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC
     min_len: 34
     max_len: 34
     onlist: null
-    regions: null
+    regions: []
 
   - !Region
-    parent_id: null
+    parent_id: rna
     region_id: illumina_i7
-    region_type: index
+    region_type: index7
     name: Illumina i7 Index
     sequence_type: onlist
     sequence: NNNNNNNN
     min_len: 8
     max_len: 8
     onlist: !Onlist
+      file_id: dual_i7.txt
       filename: dual_i7.txt
       filetype: txt
-      filesize: 4.0 KB
-      url: https://pachterlab.github.io/cbrc-spec/seqspec/onlists/Parse/dual_i7.txt
-    regions: null
+      filesize: 431
+      url: https://caltech-bioinformatics-resource-center.github.io/Tutorials/seqspec/onlists/Parse/dual_i7.txt
+      urltype: https
+      md5: "774eecb6d92214b335f50182f5480af4"
+    regions: []
 
   - !Region
-    parent_id: null
+    parent_id: rna
     region_id: illumina_p7
-    region_type: primer
+    region_type: illumina_p7
     name: Illumina P7 Primer
     sequence_type: fixed
     sequence: ATCTCGTATGCCGTCTTCTGCTTG
     min_len: 24
     max_len: 24
     onlist: null
-    regions: null
+    regions: []

@@ -6,3 +6,4 @@
 **/.**
 .DS_Store
 src/notebooks/sc_data/
+src/notebooks/gse96583_data/

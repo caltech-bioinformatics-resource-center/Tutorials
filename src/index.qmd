@@ -1,5 +1,6 @@
 ---
 title: "Welcome to CBRC Tutorials!"
+description: "Step-by-step bioinformatics tutorials from the Caltech Bioinformatics Resource Center (CBRC) for processing and analyzing omics data, including single-cell RNA-seq, bulk RNA-seq, spatial transcriptomics, and seqspec."
 toc: false
 toc-location: body
 ---

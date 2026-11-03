@@ -14,13 +14,13 @@ Above is a diagram of the **10X Chromium Single Cell 3' Dual-Indexed v3 Library*
 | Sequence           | Type   | Length   |
 |--------------------|:------:|:--------:|
 | Illumina P5 Primer | Fixed  | 29 bp    |
-| Illumina i5 Index  | Fixed  | 10 bp    |
+| Illumina i5 Index  | Onlist | 10 bp    |
 | Truseq Read 1      | Fixed  | 29 bp    |
-| Cell Barcode       | Random | 16 bp    |
+| Cell Barcode       | Onlist | 16 bp    |
 | UMI                | Random | 12 bp    |
 | cDNA               | Random | Variable |
 | Truseq Read 2      | Fixed  | 34 bp    |
-| Illumina i7 Index  | Fixed  | 10 bp    |
+| Illumina i7 Index  | Onlist | 10 bp    |
 | Illumina P7 Primer | Fixed  | 24 bp    |
 
 <br>
@@ -46,15 +46,18 @@ seqspec_version: 0.3.0
 assay_id: 10x-RNA-v3.1-dual-index
 name: Dual Indexed 10x Genomics Chromium Single Cell 3' v3.1 
 doi: https://cdn.10xgenomics.com/image/upload/v1722285481/support-documents/CG000315_ChromiumNextGEMSingleCell3__GeneExpression_v3.1_DualIndex__RevF.pdf
-date: 2024-07-29
+date: 29 July 2024
 description: 10x Genomics Chromium Single Cell 3' v3.1 using dual Illumina multiplex index
-modalities: rna
+modalities:
+- rna
 lib_struct: https://teichlab.github.io/scg_lib_structs/methods_html/10xChromium3.html
-sequence_protocol: Illumina NextSeq 2000
-sequence_kit: Illumina NextSeq 2000 P3 XLEAP-SBS Reagent kit
-library_protocol: Single-Cell RNA Sequencing Assay (OBI:0002631)
+sequence_protocol: Illumina NextSeq 2000 (EFO:0010963)
+sequence_kit: NextSeq 2000 P3 XLEAP-SBS Reagent Kit
+library_protocol: single-cell RNA sequencing assay (OBI:0002631)
 library_kit: Chromium Next GEM Chip G Single Cell Kit, 48 rxns PN-1000120
 ```
+
+`sequence_protocol`, `sequence_kit` and `library_protocol` must be chosen from seqspec's [controlled vocabulary](https://github.com/pachterlab/seqspec/blob/main/seqspec/schema/seqspec.schema.json) (use `Custom` if yours is not listed), and the `date` must be written as day, month name and year.
 
 ## Step 2: Alter the Sequence Spec
 ### Update the Read Objects
@@ -95,13 +98,15 @@ A file object in seqspec is formatted as follows:
 
 **file_id, filetype, filename** — identifies and describes the file
 
-**filesize** - the size of the file
+**filesize** - the size of the file in bytes, written as a whole number (e.g., `10737418240`, not `10 GB`)
 
-**url** - (optional) the link to the file
+**url** - the link or path to the file. For files stored alongside the seqspec, use the file's path relative to the seqspec file
 
-**urltype** - (optional) the type of url
+**urltype** - the type of url: `local`, `https`, `http` or `ftp`
 
-**md5** - (optional) MD5 fingerprint of data
+**md5** - MD5 fingerprint of data (32 lowercase hexadecimal characters)
+
+All seven fields are required for `seqspec check` to pass. Remove the `##...##` placeholders from the template as you fill them in: YAML treats anything after ` #` as a comment, so an unfilled placeholder reads as an empty value.
 
 :::{.callout-note title="What does md5 stand for?"}
 An **MD5 checksum** is a short, unique string of letters and numbers generated from a file’s contents. It acts like a digital fingerprint — if even a single byte in the file changes, the checksum will be different.
@@ -129,11 +134,11 @@ You can modify the `min_len` and `max_len` values for the cDNA region to reflect
         region_type: cdna
         name: cDNA
         sequence_type: random
-        sequence: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        sequence: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
         min_len: 150
         max_len: 150
         onlist: null
-        regions: null
+        regions: []
 ```
 
 Adjust the number of `X` characters in the `sequence` field to match the new length, and then adjust the full library sequence and length accordingly.
@@ -145,7 +150,7 @@ library_spec:
   region_type: named
   name: rna
   sequence_type: joined
-  sequence: AATGATACGGCGACCACCGAGATCTACACNNNNNNNNNNTCTTTCCCTACACGACGCTCTTCCGATCTNNNNNNNNNNNNNNNNNNNNNNNNNNNNXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXGATCGGAAGAGCACACGTCTGAACTCCAGTCACNNNNNNNNNNATCTCGTATGCCGTCTTCTGCTTG
+  sequence: AATGATACGGCGACCACCGAGATCTACACNNNNNNNNNNTCTTTCCCTACACGACGCTCTTCCGATCTNNNNNNNNNNNNNNNNXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXAGATCGGAAGAGCACACGTCTGAACTCCAGTCACNNNNNNNNNNATCTCGTATGCCGTCTTCTGCTTG
   min_len: 314
   max_len: 314
   onlist: null
@@ -154,6 +159,15 @@ library_spec:
   - !Region
     ...
 ```
+
+## Step 4: Check Your seqspec
+Validate your finished file with `seqspec check` (see [What is seqspec?](/pages/seqspec/seqspec.qmd)):
+
+```bash
+seqspec check seqspec.yaml
+```
+
+If the command prints nothing, your seqspec is valid.
 
 :::{.emphasis}
 Now you have a complete seqspec file for your data. All that's left is to save it with your dataset!

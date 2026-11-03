@@ -32,21 +32,26 @@ name:
 doi: 
 date: 
 description:
-modalities: rna
-lib_struct: 
+modalities:
+- rna
+lib_struct:
 sequence_protocol: 
 sequence_kit: 
 library_protocol: 
 library_kit:
 ```
 
-**seqspec_version** — version of the seqspec format used (this tutorial will use version 0.3.0)
+**seqspec_version** — version of the seqspec format used. This tutorial uses format version 0.3.0, which is the current format and is fully supported by the latest seqspec tool (v0.4.0)
 
-**assay_id, name, doi, date, description** — metadata describing the assay
+**assay_id, name, doi, date, description** — metadata describing the assay. The `date` must be written as day, full month name and year (e.g., `29 July 2024`)
+
+**modalities** — a list of the modalities in the library (`rna`, `dna`, `atac`, `protein`, `tag` or `crispr`). Even a single modality must be written as a list item (`- rna`)
 
 **library_protocol, library_kit** — kit and reagents used for library prep
 
 **sequence_protocol, sequence_kit** — sequencing instrument and reagents used
+
+`library_protocol`, `sequence_protocol` and `sequence_kit` must be chosen from seqspec's controlled vocabulary (for example, `single-cell RNA sequencing assay (OBI:0002631)` or `Illumina NovaSeq 6000 (EFO:0008637)`). If your protocol or kit is not listed, use `Custom`. `library_kit` may be any text.
 
 ### Example
 
@@ -60,7 +65,8 @@ name: Parse Evercode Mega WT v2 using dual Illumina multiplex index
 doi: https://www.protocols.io/view/evercode-wt-mega-v2-2-1-8epv5xxrng1b/v1?step=21
 date: 08 November 2023
 description: split-pool ligation-based transcriptome sequencing
-modalities: rna
+modalities:
+- rna
 lib_struct: https://igvf.github.io/seqspec/
 library_protocol: single-nucleus RNA sequencing assay (OBI:0003109)
 library_kit: Evercode WT Mega v2.0.1 dual index
@@ -92,11 +98,15 @@ Each region is defined with the following template:
 
 **parent_id** — refers to the parent region (if it exists)
 
-**sequence, sequence_type** — specifies the nucleotide sequence and its type (e.g., fixed, onlist, variable)
+**region_type** — must be one of seqspec's region types, such as `illumina_p5`, `illumina_p7`, `truseq_read1`, `truseq_read2`, `index5`, `index7`, `barcode`, `umi`, `linker`, `cdna` or `named`
+
+**sequence, sequence_type** — specifies the nucleotide sequence and its type: `fixed` (a known sequence), `onlist` (one of a list of known sequences, written as `N`s), `random` (an unknown sequence such as a UMI or cDNA, written as `X`s) or `joined` (a parent region made up of child regions)
 
 **min_len, max_len** — defines expected sequence lengths
 
-**onlist** — references a file or list of valid sequences (e.g., known cell barcodes)
+**onlist** — references a file of valid sequences (e.g., known cell barcodes); `null` if the region has no onlist
+
+**regions** — the child regions of this region; `[]` if it has none
 
 ### Nested Regions
 
@@ -114,12 +124,12 @@ library_spec:
     parent_id: parent
     region_id: region_1
     ...
-    regions: null
+    regions: []
   - !Region
     parent_id: parent
     region_id: region_2
     ...
-    regions: null
+    regions: []
 ```
 
 ### Examples
@@ -129,37 +139,42 @@ Below are two example regions you might find in a seqspec file.
 #### Example 1: Illumina P5 primer
 ``` yaml
 - !Region
-  parent_id: null
+  parent_id: rna
   region_id: P5
-  region_type: primer
-  name: P5
+  region_type: illumina_p5
+  name: Illumina P5 primer
   sequence_type: fixed
   sequence: AATGATACGGCGACCACCGAGATCTACAC
   min_len: 29
   max_len: 29
   onlist: null
-  regions: null
+  regions: []
 ```
 
-#### Example 2: Parse Biosciences Evercode WT cell barcode
+#### Example 2: Parse Biosciences Evercode WT v2 round 1 barcode
 ``` yaml
 - !Region
-  parent_id: null
-  region_id: BC
+  parent_id: rna
+  region_id: R1_BC
   region_type: barcode
-  name: cell barcode
+  name: Round 1 Barcode
   sequence_type: onlist
-  sequence: NNNNNNNNNNNNNNNN
-  min_len: 16
-  max_len: 16
+  sequence: NNNNNNNN
+  min_len: 8
+  max_len: 8
   onlist: !Onlist
-    location: local
-    filename: onlist.txt
-  regions: null
+    file_id: BC1_WT_rev.txt
+    filename: BC1_WT_rev.txt
+    filetype: txt
+    filesize: 864
+    url: https://caltech-bioinformatics-resource-center.github.io/Tutorials/seqspec/onlists/Parse/v2/BC1_WT_rev.txt
+    urltype: https
+    md5: "820449f4ab25627116df1911ce50e6c5"
+  regions: []
 ```
 
 ::: {.callout-note title="What is an Onlist?"}
-In Parse Evercode libraries, barcode regions are validated against a fixed list of known barcodes called the “onlist”.
+Barcode and index regions are often validated against a fixed list of known sequences called an “onlist” (for example, 10x Genomics cell barcodes or Parse Biosciences round barcodes). Each onlist entry must include `file_id`, `filename`, `filetype`, `filesize` (in bytes), `url`, `urltype` (`local`, `http`, `https` or `ftp`) and `md5`. Onlist sequences are written in the same orientation as the library structure (5’→3’ from P5 to P7). If a barcode is sequenced by a read on the negative strand (as Parse barcodes are by Read 2), it appears in that read's FASTQ as the reverse complement of its onlist, and tools such as `seqspec onlist` do not reverse it for you. For this reason, the Parse seqspecs should not be used with `seqspec onlist` to make a kb-python whitelist (see our [Parse tutorials](/pages/seqspec/seqspec_tutorials.qmd)).
 :::
 
 ## Section 3: Read Structure
@@ -188,7 +203,7 @@ Each read entry looks like this:
 
 **min_len, max_len** — expected read length
 
-**files** — references the FASTQ files containing this read
+**files** — references the FASTQ files containing this read. `filesize` is the size of the file in bytes, and `md5` is its checksum (on macOS, run `md5 read_1.fastq.gz`; on Linux, run `md5sum read_1.fastq.gz`)
 
 ### Example
 
@@ -204,10 +219,10 @@ sequence_spec:
   strand: pos
   files:
   - !File
-    file_id: read_1
+    file_id: read_1.fastq.gz
     filename: read_1.fastq.gz
-    filetype: fastq.gz
-    filesize: 10 GB
+    filetype: fastq
+    filesize: 10737418240
     url: https://example.org/read_1.fastq.gz
     urltype: https
     md5: d1410f93b53357d4f95edb0ba0d73c07
@@ -223,7 +238,7 @@ seqspec check seqspec.yaml
 If your file is valid, the command will complete without errors; otherwise, it will print a description of any issues found in the specification.
 
 :::{.callout-note title="Install seqspec"}
-In order to install seqspec, follow our installation instructions [here](/pages/installation/python_packages.qmd).
+In order to install seqspec, follow our installation instructions [here](/pages/installation/python_packages.qmd), using `seqspec` as the package name (e.g., `pip install seqspec`). The latest version of seqspec (v0.4.0) requires Python 3.12 or newer.
 :::
 
 # Summary

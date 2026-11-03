@@ -2,9 +2,12 @@ project:
   type: website
   resources:
     - seqspec/onlists/**/*
+    - google348074bdd9084810.html
 
 website:
   title: "CBRC Tutorials"
+  site-url: https://caltech-bioinformatics-resource-center.github.io/Tutorials/
+  description: "Bioinformatics tutorials from the Caltech Bioinformatics Resource Center (CBRC) for processing and analyzing omics data."
   navbar:
     background: "#013c58"
     pinned: true
@@ -63,7 +66,7 @@ website:
           - href: pages/installation/fastqc_install.qmd
             text: Installing FastQC
     right:
-      - href: https://caltech-bioinformatics-resource-center.github.io/CBRC/
+      - href: https://caltech-bioinformatics-resource-center.github.io/
         text: CBRC
 
   page-footer:

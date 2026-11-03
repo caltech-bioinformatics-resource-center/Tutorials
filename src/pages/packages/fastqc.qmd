@@ -3,7 +3,9 @@ title: "Quality Control of Raw Sequencing Data with `FastQC`"
 css: fastqc_figures.css
 ---
 
-**FastQC** is a quality control tool for high-throughput sequencing data. It provides a quick, visual summary of your raw **FASTQ** files, helping you identify potential issues such as low-quality reads, adapter contamination, or biased base composition. FastQC generates easy-to-read HTML reports that summarize key quality metrics like per-base quality scores, GC content, and sequence duplication levels. Running FastQC before alignment or downstream analysis ensures your sequencing data are high-quality and suitable for accurate biological interpretation.
+**FastQC** is a quality control tool for high-throughput sequencing data. It provides a quick, visual summary of your raw **FASTQ** files, helping you identify potential issues such as low-quality reads, adapter contamination, or biased base composition. FastQC generates easy-to-read HTML reports that summarize key quality metrics like per-base quality scores, GC content, and sequence duplication levels. Running FastQC before alignment or downstream analysis ensures your sequencing data are high-quality and suitable for accurate biological interpretation. 
+
+Note that for platforms with a technical read and biological read, any metrics beyond those that measure sequencing should be ignored since the technical read contains similar, repetetive sequences by design. 
 
 Here we provide a brief tutorial for analyzing your FASTQ files with FastQC. For a more in-depth explanation of FastQC please refer to the [website](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) and [GitHub page](https://github.com/s-andrews/FastQC).
 
@@ -114,7 +116,7 @@ In random libraries, the lines should be roughly parallel.
 
 ![A Good FastQC Report](/images/fastqc_plots/good/per_base_SC)
 
-Deviations early in the read may indicate biased priming, adapter contamination, or non-random base composition typical of certain assays (e.g., single-cell barcoding regions).
+Deviations early in the read may indicate biased priming, adapter contamination, or non-random base composition typical of certain assays (e.g., single-cell barcoding regions), which should be ignored in those cases.
 
 </details>
 

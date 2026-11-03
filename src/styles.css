@@ -541,3 +541,8 @@ details[open] {
   width: 48px;
   margin-bottom: 0.5rem;
 }
+
+/* Keep page descriptions in <meta> for search engines, but hide them from the title block */
+#title-block-header .description {
+  display: none;
+}
